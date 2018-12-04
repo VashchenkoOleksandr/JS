@@ -9,4 +9,5 @@ before_install:
 install:
 - cd HW6_JS1/
 - npm install
-script: "sudo $(which npm) test"
+script: 
+- npm test
