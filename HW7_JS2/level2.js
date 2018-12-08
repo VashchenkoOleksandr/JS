@@ -1,6 +1,3 @@
 //level 2
 
-while( isFree ('east')) {
-    east();
-  
-}
+while (isFree ('east')) { east(); }
