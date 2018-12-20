@@ -1,14 +1,14 @@
 //Так і не зміг вирішити питання як читати лабіринт з консолі
 let level_map;
-let start_position_i;
-let start_position_j;
+let start_i;
+let start_j;
 let level;
 //Взяв всі мапи та старт точки з файлу http://zhesha.github.io/robohub/robohub/levels.js
 for (level = 1; level < 8; level++) {
     switch(level) {
         case 1:
-            start_position_i = 3;
-            start_position_j = 1;
+            start_i = 3;
+            start_j = 1;
             level_map = [
                 ['#','#','#'],
                 ['#','*','#'],
@@ -18,8 +18,8 @@ for (level = 1; level < 8; level++) {
             ]; 
             break;
         case 2:
-            start_position_i = 1;
-            start_position_j = 1;
+            start_i = 1;
+            start_j = 1;
             level_map = [
                 ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'],
                 ['#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*','#'],
@@ -27,8 +27,8 @@ for (level = 1; level < 8; level++) {
             ];  
             break;
         case 3:
-            start_position_i = 1;
-            start_position_j = 1;
+            start_i = 1;
+            start_j = 1;
             level_map = [
                 ['#','#','#','#','#','#','#','#','#','#'],
                 ['#',' ','#','#','#','#','#','#','#','#'],
@@ -43,8 +43,8 @@ for (level = 1; level < 8; level++) {
             ];
             break;
         case 4:            
-            start_position_i = 1;
-            start_position_j = 1;
+            start_i = 1;
+            start_j = 1;
             level_map = [
                 ['#','#','#','#','#','#','#','#','#'],
                 ['#',' ','#','#','#','#','#','#','#'],
@@ -59,8 +59,8 @@ for (level = 1; level < 8; level++) {
             ];
             break;
         case 5:
-            start_position_i = 1;
-            start_position_j = 1;
+            start_i = 1;
+            start_j = 1;
             level_map = [
                 ['#','#','#','#','#','#','#','#','#'],
                 ['#',' ',' ',' ',' ',' ',' ',' ','#'],
@@ -75,8 +75,8 @@ for (level = 1; level < 8; level++) {
             ];
             break;
         case 6:
-            start_position_i = 1;
-            start_position_j = 1;
+            start_i = 1;
+            start_j = 1;
             level_map = [
                 ['#','#','#','#','#','#','#','#','#'],
                 ['#',' ','#',' ',' ',' ',' ',' ','#'],
@@ -91,8 +91,8 @@ for (level = 1; level < 8; level++) {
             ];
             break;
         case 7:
-            start_position_i = 1;
-            start_position_j = 1;
+            start_i = 1;
+            start_j = 1;
             level_map = [
                 ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'],
                 ['#',' ','#',' ',' ',' ',' ',' ','#','#','#','#','#','#','#','#','#','#'],
@@ -121,23 +121,31 @@ for (level = 1; level < 8; level++) {
                 ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#']
             ];
             break;
-    }
-}
+    };
+
+    exit(start_i, start_j, level_map);
+
+};
+
+function exit(start_i, start_j, level_map) {
 
 //Спочатку думав просто порахувати де знаходиться вихід з лабіринту але вирішив написати код який шукає вихід з лабіринту символ "*"
 let end_position_i, end_position_j;
+let start_position_i = start_i;
+let start_position_j = start_j;
 let arr_width = level_map.length;
 let arr_heigth = level_map [0].length;
-
-for (let i = 0; i < arr_width; i++) {
-    for (let j = 0; j < arr_heigth; j++) {
-        if (level_map [i][j] == '*') {
-            end_position_i = i;
-            end_position_j = j;
+    
+    for (let i = 0; i < arr_width; i++) {
+        for (let j = 0; j < arr_heigth; j++) {
+            if (level_map [i][j] == '*') {
+                end_position_i = i;
+                end_position_j = j;
+            }
         }
-    }
-}
-
+    };
+    
+};
 
 
 
