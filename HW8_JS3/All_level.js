@@ -1,4 +1,49 @@
 //http://zhesha.github.io
+
+//Думав робити через оператор switch але нічого не виходило. 
+//Знайшов кращий варіант з використанням function
+
+restart ();
+stepToNorth ();
+function stepToNorth () {
+    if (isFree ('north')) {
+        if (north () == 'end') return 0;
+        stepToEast ();
+    } else { 
+        stepToWest ();
+    }
+}
+
+function stepToSouth () {
+    if (isFree ('south')) {
+        if (south () == 'end') return 0;
+        stepToWest ();
+    } else {
+        stepToEast ();  
+    } 
+}    
+
+function stepToWest () {
+    if (isFree ('west')) {
+        if (west () == 'end') return 0;
+        stepToNorth ();
+    } else { 
+        stepToSouth ();
+    }
+}
+
+function stepToEast () {
+if (isFree ('east')) {
+    if (east () == 'end') return 0;
+    stepToSouth ();
+} else {
+    stepToNorth ();
+}
+} 
+
+
+
+//ЦЕЙ КОД ТАК І НЕ ПРАЦЮЄ. ТРЕБА РОЗБИРАТИСЯ ЧОМУ
 //Так і не зміг вирішити питання як читати лабіринт з консолі
 restart ();
 let level_map;
@@ -202,62 +247,3 @@ let arr_heigth = level_map [0].length;
 
 //НЕ ПРАЦЮЄ! КОД ЗАХОДИТЬ В ЦИКЛ І НЕ ВИХОДИТЬ З НЬОГО В КОНСОЛІ НІЧОГО НЕ ПИШЕ АЛЕ ПРОЦ НАВАНТАЖУЄ!
 
-restart ();
-stepToNorth ();
-function stepToNorth () {
-    if (isFree ('north')) {
-        if (north () == 'end') return 0;
-        stepToWest ();
-    } else { 
-        stepToEast ();
-    }
-}
-
-function stepToSouth () {
-    if (isFree ('south')) {
-        if (south () == 'end') return 0;
-        stepToEast ();
-    } else {
-        stepToWest ();  
-    } 
-}    
-
-function stepToWest () {
-    if (isFree ('west')) {
-        if (west () == 'end') return 0;
-        stepToSouth ();
-    } else { 
-        stepToNorth ();
-    }
-}
-
-function stepToEast () {
-if (isFree ('east')) {
-    if (east () == 'end') return 0;
-    stepToNorth ();
-} else {
-    stepToSouth ();
-}
-} 
-
-
-
-if (north() != 'end'|| east() != 'end') {
-    if (isFree ('north')) {
-        while (isFree ('north')) {
-            north ();	
-        }
-    } else if (isFree ('east')) {
-        while (isFree ('east')) {
-            east ();	
-        }
-    } else if (isFree ('south')) {
-        while (isFree ('south')) {
-            east ();	
-        }
-    } else if (isFree ('weast')) {
-        while (isFree ('weast')) {
-            east ();	
-        }
-    }
-}
