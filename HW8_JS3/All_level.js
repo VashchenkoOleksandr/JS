@@ -202,56 +202,46 @@ let arr_heigth = level_map [0].length;
 
 //НЕ ПРАЦЮЄ! КОД ЗАХОДИТЬ В ЦИКЛ І НЕ ВИХОДИТЬ З НЬОГО В КОНСОЛІ НІЧОГО НЕ ПИШЕ АЛЕ ПРОЦ НАВАНТАЖУЄ!
 
-
-let start = 1;
-switch (start) {
-    case 1:
+restart ();
+stepToNorth ();
+function stepToNorth () {
     if (isFree ('north')) {
-        north ();
-        if (north () == 'end') break;
-        start = 3;
-    } else {
-     start = 4;
+        if (north () == 'end') return 0;
+        stepToWest ();
+    } else { 
+        stepToEast ();
     }
-    break;
-        
-    case 2:
-    if (isFree ('south')) {
-        south ();
-        if (south () == 'end') break;
-        start = 4;
-    } else {
-        start = 3;
-    }
-    break;
-        
-    case 3:
-    if (isFree ('west')) {
-        west ();
-        if (west () == 'end') break;
-        start = 2;
-    } else {
-        start = 1;
-    }
-    break;
-    
-    case 4:
-    if (isFree ('east')) {
-        east ();
-        if (east () == 'end') break;
-        start = 1;
-    } else {
-        start = 2;
-    }
-    break;
-    
-    default:
-        break;
 }
-    
-    
-    
-    
+
+function stepToSouth () {
+    if (isFree ('south')) {
+        if (south () == 'end') return 0;
+        stepToEast ();
+    } else {
+        stepToWest ();  
+    } 
+}    
+
+function stepToWest () {
+    if (isFree ('west')) {
+        if (west () == 'end') return 0;
+        stepToSouth ();
+    } else { 
+        stepToNorth ();
+    }
+}
+
+function stepToEast () {
+if (isFree ('east')) {
+    if (east () == 'end') return 0;
+    stepToNorth ();
+} else {
+    stepToSouth ();
+}
+} 
+
+
+
 if (north() != 'end'|| east() != 'end') {
     if (isFree ('north')) {
         while (isFree ('north')) {
