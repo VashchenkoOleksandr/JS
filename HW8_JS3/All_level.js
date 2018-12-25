@@ -42,9 +42,7 @@ if (isFree ('east')) {
 } 
 
 
-
-//ЦЕЙ КОД ТАК І НЕ ПРАЦЮЄ. ТРЕБА РОЗБИРАТИСЯ ЧОМУ
-//Так і не зміг вирішити питання як читати лабіринт з консолі
+//Варіант проходження лабіринту №2
 restart ();
 let level_map;
 let start_i;
@@ -176,7 +174,7 @@ for (level = 1; level < 8; level++) {
 
 function exit(start_i, start_j, level_map) {
 
-//Спочатку думав просто порахувати де знаходиться вихід з лабіринту але вирішив написати код який шукає вихід з лабіринту символ "*"
+// debugger; ЦЕ ПРОСТО ЧУДО 
 let end_position_i, end_position_j;
 let start_position_i = start_i;
 let start_position_j = start_j;
@@ -192,7 +190,6 @@ let arr_heigth = level_map [0].length;
         }
     };
 
-//Переводимо лабіринт в цифрове значення https://habr.com/post/264189/ -1-стіна 0-можна ходити 1-фініш   
     let map_numbers = [];
     
     for (let i = 0; i < arr_width; i++) {
@@ -210,9 +207,9 @@ let arr_heigth = level_map [0].length;
 
     let exit = [[end_position_i, end_position_j]];
     let way;
-    while (exit.length != 0); {
+    while (exit.length != 0) {
         way = exit.shift();
-        if (way[0] + 1 < n && map_numbers[way[0] + 1][way[1]] == 0) {
+        if (way[0] + 1 < arr_width && map_numbers[way[0] + 1][way[1]] == 0) {
             map_numbers[way[0] + 1][way[1]] = map_numbers[way[0]][way[1]] + 1;
             exit.push([way[0] + 1, way[1]]);
         }
@@ -220,7 +217,7 @@ let arr_heigth = level_map [0].length;
             map_numbers[way[0] - 1][way[1]] = map_numbers[way[0]][way[1]] + 1;
             exit.push([way[0] - 1, way[1]]);
         }
-        if (way[1] + 1 < m && map_numbers[way[0]][way[1] + 1] == 0) {
+        if (way[1] + 1 < arr_heigth && map_numbers[way[0]][way[1] + 1] == 0) {
             map_numbers[way[0]][way[1] + 1] = map_numbers[way[0]][way[1]] + 1;
             exit.push([way[0], way[1] + 1]);
         }
@@ -230,20 +227,22 @@ let arr_heigth = level_map [0].length;
         }
     }
     
-//так зручніше читати код ніж писати start_position_i start_position_j
     let i = start_i;
     let j = start_j;
     
-    while (!(start_position_i == end_position_i && start_position_j == end_position_j)) {
-        (i + 1 < arr_width && map_numbers [i + 1][j] == map_numbers [i][j] - 1) ?
-            (south (), i++)
-        : (i - 1 >= 0 && map_numbers [i - 1][j] == map_numbers [i][j] - 1) ?
-            (north (), i--)
-        : (j + 1 < arr_heigth && map_numbers [i][j + 1] == map_numbers [i][j] - 1) ?
-            (east (), j++)
-        : (west (), j--)
+    while (!(i == end_position_i && j == end_position_j)) {
+        if (i + 1 < arr_width && map_numbers [i + 1][j] == map_numbers [i][j] - 1) {
+            south (); 
+            i++;
+        } else if (i - 1 >= 0 && map_numbers [i - 1][j] == map_numbers [i][j] - 1) {
+            north (); 
+            i--;
+        } else if (j + 1 < arr_heigth && map_numbers [i][j + 1] == map_numbers [i][j] - 1) {
+            east ();
+            j++;
+        } else {
+            west ();
+            j--;
+        }
     }
 }
-
-//НЕ ПРАЦЮЄ! КОД ЗАХОДИТЬ В ЦИКЛ І НЕ ВИХОДИТЬ З НЬОГО В КОНСОЛІ НІЧОГО НЕ ПИШЕ АЛЕ ПРОЦ НАВАНТАЖУЄ!
-
