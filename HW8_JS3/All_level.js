@@ -231,18 +231,12 @@ let arr_heigth = level_map [0].length;
     let j = start_j;
     
     while (!(i == end_position_i && j == end_position_j)) {
-        if (i + 1 < arr_width && map_numbers [i + 1][j] == map_numbers [i][j] - 1) {
-            south (); 
-            i++;
-        } else if (i - 1 >= 0 && map_numbers [i - 1][j] == map_numbers [i][j] - 1) {
-            north (); 
-            i--;
-        } else if (j + 1 < arr_heigth && map_numbers [i][j + 1] == map_numbers [i][j] - 1) {
-            east ();
-            j++;
-        } else {
-            west ();
-            j--;
-        }
+        (i + 1 < arr_width && map_numbers [i + 1][j] == map_numbers [i][j] - 1)
+            ? ( south (), i++)
+            : (i - 1 >= 0 && map_numbers [i - 1][j] == map_numbers [i][j] - 1)
+            ? (north (), i--) 
+            : (j + 1 < arr_heigth && map_numbers [i][j + 1] == map_numbers [i][j] - 1)
+            ? (east (), j++) 
+            : (west (), j--)
     }
 }
