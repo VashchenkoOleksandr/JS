@@ -16,36 +16,23 @@ setTimeout (function () {
 
 //random numbers async await
 
-debugger
+debugger;
 
+const timeout1sec = ms => new Promise(resolve => setTimeout(resolve, ms));
+const timeout2sec = ms => new Promise(resolve => setTimeout(resolve, ms));
 random1sec ();
 random2sec ();
-oneSecond ();
 
 async function random1sec() {
-    setTimeout (function oneSecond () {
-        let limit = Math.random() * 10;
-        return limit;
-    }, 1000);
-    let limitNumber = await oneSecond ();
+    await timeout1sec (1000);
+    var limitNumber = Math.random () * 10;
     limitNumber = Math.round(limitNumber);
     return limitNumber;
 }
 
 async function random2sec() {
-    await timeout(2000);
+    await timeout2sec (2000);
     var pageNumber = Math.random() * 10;
     pageNumber = Math.round(pageNumber);
     return pageNumber;
 }
-
-
-const limitNumber = ms => new Promise(resolve => setTimeout(resolve, ms));
-
-async function something() {
-    console.log("this might take some time....");
-    await limitNumber(5000);
-    console.log("done!")
-}
-
-something();
