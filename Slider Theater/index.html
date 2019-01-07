@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vashchenko Oleksandr SASS</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body class="body-news">
+
+<!-- Header starts -->
+    <header class="header-news">
+        <h1 hidden>Театр імені Т.Г. Шевченка</h1>
+        <a href="#" aria-label="Logo link to the main page"><img class="header-logo" src="img/logo.png" alt="The site logo T.G. Shevchenko"></a>
+        <nav class="header-nav">
+            <a href="#" aria-label="Link on theatre main page">головна</a>
+            <a href="#" aria-label="Link on the theatre poster page">афіша</a>
+            <a href="#" aria-label="Link on the theatre repertoire page">репертуар</a>
+            <a href="#" aria-label="Link on the theatre news page">новини</a>
+            <a href="#" aria-label="Link about the theatre page">про театр</a>
+            <a href="#" aria-label="Link the theatre persons page">персоналії</a>
+            <a href="#" aria-label="Link the theatre contacts page">контакти</a>
+            <a href="#" aria-label="link the theatre festival page">фестивалі</a>
+        </nav>
+        <label for="lng" hidden>Selected the site language Ukrainian, Russian and  English. Enjoy our web-site and your life!</label>
+            <select class="lng-select"  id="lng" size="1" name="Change language">
+                <option value="Ukrainian" selected aria-label="Chose the Ukrainian language">UKR</option>
+                <option value="Russian" aria-label="Chose the Russian language">RUS</option>
+                <option value="English" aria-label="Chose the English language">ENG</option>
+            </select>
+
+
+    </header>
+
+<!-- Slider starts -->
+<div class="slider">
+    <img class="mySlide" src="img/slider1.jpg" alt="Slider image the performance preview">
+    <img class="mySlide" src="img/slider2.jpg" alt="Slider image the performance preview">
+    <img class="mySlide" src="img/slider3.jpg" alt="Slider image the performance preview">
+    <img class="mySlide" src="img/slider4.jpg" alt="Slider image the performance preview">
+    <img class="mySlide" src="img/slider5.jpg" alt="Slider image the performance preview">
+    <ul>
+        <li>
+            <button id="arrow-left" class="arrow-left" type="button" name="Previous performance"
+            onclick="plusDivs(-1)"
+            title="Arrow the previous performance in the theatre"></button>
+        </li>
+        <li>
+            <button id="item-21.01" class="item-slider js_demo" type="button" name="The performance date"
+            onclick="current_li(1)"
+            title="The (performance name). 21 Sunday February">
+                <span class="day">Нд</span>
+                <span class="date">21</span>
+                <span class="month">лютого</span>
+            </button>
+        </li>
+        <li>
+            <div class="item-slider-block js_item" onclick="current_li(1)">
+                <h2>Слайд перший</h2>
+                <ul>
+                    <li>Народна трагедія на 2 дії <br /> Тривалість вистави 2 год.</li>
+                </ul>
+                <button id="buy-ticket" class="buy-tickets" type="button" name="Buy ticket on the performance"
+                        title="Button buy the tickets on the this performance">
+                    Купити квиток
+                </button>
+            </div>
+        </li>        
+        <li>
+            <button id="item1-22.01" class="item-slider js_demo" type="button" name="The performance day"
+            onclick="current_li(2)"        
+            title="The (performance name). 22 Monday February">
+                <span class="day">Пн</span>
+                <span class="date">22</span>
+                <span class="month">лютого</span>
+            </button>
+        </li>
+        <li>
+            <div class="item-slider-block js_item" onclick="current_li(2)">
+                <h2>Слайд другий</h2>
+                <ul>
+                    <li>Народна комедія на 2 дії <br /> Тривалість вистави 2 год 20 хв.</li>
+                </ul>
+                <button id="buy-ticket" class="buy-tickets" type="button" name="Buy ticket on the performance"
+                        title="Button buy the tickets on the this performance">
+                    Купити квиток
+                </button>
+            </div>
+        </li>
+        <li>
+            <button class="item-slider js_demo" onclick="current_li(3)"
+            title="The (performance name). 22 Monday February">
+                <span class="day">Пн</span>
+                <span class="date">22</span>
+                <span class="month">лютого</span>
+            </button>
+        </li>
+        <li>
+            <div class="item-slider-block js_item">
+                <h2>Слайд третій</h2>
+                <ul>
+                    <li>Щось супер круте на 2 дії <br /> Тривалість вистави 2 год 20 хв.</li>
+                </ul>
+                <button id="buy-ticket" class="buy-tickets" type="button" name="Buy ticket on the performance"
+                        title="Button buy the tickets on the this performance">
+                    Купити квиток
+                </button>
+            </div>
+        </li>
+        <li>
+            <button id="item-25.01" class="item-slider js_demo" type="button" name="The performance day"
+            onclick="current_li(4)"        
+            title="The (performance name). 25 Thursday February">
+                <span class="day">Чт</span>
+                <span class="date">25</span>
+                <span class="month">лютого</span>
+            </button>
+        </li>
+        <li>
+            <div class="item-slider-block js_item">
+                <h2>Четвертий слайд</h2>
+                <ul>
+                    <li>Майже готовий слайдер <br /> Тривалість вистави 2 год 20 хв.</li>
+                </ul>
+                <button id="buy-ticket" class="buy-tickets" type="button" name="Buy ticket on the performance"
+                        title="Button buy the tickets on the this performance">
+                    Купити квиток
+                </button>
+            </div>
+        </li>        
+        <li>
+            <button id="item-26.01" class="item-slider js_demo" type="button" name="The performance day"
+            onclick="current_li(5)"        
+            title="The (performance name). 26 Friday February">
+                <span class="day">Пт</span>
+                <span class="date">26</span>
+                <span class="month">лютого</span>
+            </button>
+        </li>
+        <li>
+            <div class="item-slider-block js_item">
+                <h2>Програмування це супер круто</h2>
+                <ul>
+                    <li>Народна трагікомедія на 3 дії <br /> Тривалість вистави все життя.</li>
+                </ul>
+                <button id="buy-ticket" class="buy-tickets" type="button" name="Buy ticket on the performance"
+                        title="Button buy the tickets on the this performance">
+                    Купити квиток
+                </button>
+            </div>
+        </li>        
+        <li>
+            <button id="arrow-right" class="arrow-right" type="button" name="Next performance"
+            onclick="plusDivs(1)"        
+            title="Arrow the next performance in the theatre"></button>
+        </li>
+    </ul>
+</div>
+
+<!-- Page content starts -->
+<div class="content">
+
+    <!-- Left navigation -->
+    <nav class="nav-news">
+    <ul>
+        <li>
+        <img src="img/system-icon/photo.png" alt="Icon to the theater photo archive">
+        <a href="#" aria-label="Link to the theater photo archive">фотоархів</a>
+        </li>
+        <li>
+        <img src="img/system-icon/video.png" alt="Icon to the theater video archive">
+        <a href="#" aria-label="Link to the theater video archive">відеоархів</a>
+        </li>
+        <li>
+        <img src="img/system-icon/lamp.png" alt="Icon to the theater caring council">
+        <a href="#" aria-label="Link to the theater caring council">піклувальна рада</a>
+        </li>
+        <li>
+        <img src="img/system-icon/partners.png" alt="Icon to the theater partners">
+        <a href="#" aria-label="Link to the theater partners">партнери</a>
+        </li>
+        <li>
+        <img src="img/system-icon/forum.png" alt="Icon to the theater forum">
+        <a href="#" aria-label="Link to the theater forum">форум</a>
+        </li>
+    </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main-news">
+    <h2>Новини</h2>
+    <section>
+        <a href="#" aria-label="Link for news">
+        <img src="img/news.png" aria-label="News image" title="The news images and link for news">
+            <h3>Назва новини</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eligendi facere qui sit unde. Ab
+                dolores hic nobis officiis perferendis placeat qui, quia tempora. Accusamus accusantium architecto
+                at cum eaque fuga, placeat rerum sequi totam voluptatem! Blanditiis commodi, consequatur debitis
+                minima nisi officia perspiciatis possimus quas quis recusandae, repudiandae vitae?</p>
+        </a>
+        <ul>
+            <li>12.02.2015</li>
+            <li><img src="img/system-icon/view.png" aria-label="view icon" title="Number of views">112</li>
+        </ul>
+    </section>
+
+    <section>
+        <a href="#" aria-label="Link for news">
+        <img src="img/news.png" aria-label="News image" title="The news images and link for news">
+            <h3>Назва новини</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eligendi facere qui sit unde. Ab
+                dolores hic nobis officiis perferendis placeat qui, quia tempora. Accusamus accusantium architecto
+                at cum eaque fuga, placeat rerum sequi totam voluptatem! Blanditiis commodi, consequatur debitis
+                minima nisi officia perspiciatis possimus quas quis recusandae, repudiandae vitae?</p>
+        </a>
+        <ul>
+            <li>12.02.2015</li>
+            <li><img src="img/system-icon/view.png" aria-label="view icon" title="Number of views">112</li>
+        </ul>
+    </section>
+
+    <section>
+        <a href="#" aria-label="Link for news">
+        <img src="img/news.png" aria-label="News image" title="The news images and link for news">
+            <h3>Назва новини</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eligendi facere qui sit unde. Ab
+                dolores hic nobis officiis perferendis placeat qui, quia tempora. Accusamus accusantium architecto
+                at cum eaque fuga, placeat rerum sequi totam voluptatem! Blanditiis commodi, consequatur debitis
+                minima nisi officia perspiciatis possimus quas quis recusandae, repudiandae vitae?</p>
+        </a>
+        <ul>
+            <li>12.02.2015</li>
+            <li><img src="img/system-icon/view.png" aria-label="view icon" title="Number of views">112</li>
+        </ul>
+    </section>
+
+    <section>
+        <a href="#" aria-label="Link for news">
+        <img src="img/news.png" aria-label="News image" title="The news images and link for news">
+            <h3>Назва новини</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eligendi facere qui sit unde. Ab
+                dolores hic nobis officiis perferendis placeat qui, quia tempora. Accusamus accusantium architecto
+                at cum eaque fuga, placeat rerum sequi totam voluptatem! Blanditiis commodi, consequatur debitis
+                minima nisi officia perspiciatis possimus quas quis recusandae, repudiandae vitae?</p>
+        </a>
+        <ul>
+            <li>12.02.2015</li>
+            <li><img src="img/system-icon/view.png" aria-label="view icon" title="Number of views">112</li>
+        </ul>
+    </section>
+
+    </main>
+
+    <!-- Right section -->
+    <section class="section-news">
+        <h2>Галерея</h2>
+        <a href="#" aria-label="Link to the theater photo gallery">
+        <img src="img/gallery.png" title="The photo gallery title image">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </a>
+        <h2>Відео</h2>
+        <a href="#" aria-label="Link to the theater video gallery">
+        <img src="img/video.png" title="The video title image">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </a>
+    </section>
+
+</div>
+<!-- Footer starts -->
+<footer class="footer-news">
+   <a class="up-arrow" href="#" aria-label="Up page link"><img src="img/system-slider/up-arrow.png" alt="Up page arrow"></a>
+   <div class="footer-nav">
+    <nav>
+        <a href="#" aria-label="">головна</a>
+        <a href="#" aria-label="">афіша</a>
+        <a href="#" aria-label="">репертуар</a>
+        <a href="#" aria-label="">новини</a>
+        <a href="#" aria-label="">про театр</a>
+        <a href="#" aria-label="">персоналії</a>
+        <a href="#" aria-label="">контакти</a>
+        <a href="#" aria-label="">фестивалі</a>
+        <a href="#" aria-label="">форум</a>
+    </nav>
+
+    <ul>
+        <li><a href="#" aria-label="Link on the vk.com page"><img src="img/social-icon/vk.png" alt="vk.com icon"></a></li>
+        <li><a href="#" aria-label="Link on the YouTube chanel"><img src="img/social-icon/yt.png" alt="youtube.com icon"></a></li>
+        <li><a href="#" aria-label="Link on the Google+ account"><img src="img/social-icon/g+.png" alt="Google + icon"></a></li>
+        <li><a href="#" aria-label="Link on the FaceBook social page"><img src="img/social-icon/fb.png" alt="Face Book icon"></a></li>
+        <li><a href="#" aria-label="Link on the Twitter account"><img src="img/social-icon/tw.png" alt="Twitter icon"></a></li>
+    </ul>
+   </div>
+</footer>
+
+<script src="js/slider_script.js"></script>    
+    
+</body>
+</html>
