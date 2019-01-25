@@ -1,11 +1,17 @@
 window.onload = function () {
+    let requestText = document.querySelector('#js_postText');
+
     document.querySelector('#js_getButton').onclick = function () {
         requestGet('http://localhost:5984/test/hw11', function (stringInHTML) {
             document.querySelector('#js_get4Log').innerHTML = stringInHTML;
         });
+    }    
+    
+    document.querySelector('#js_postButton').onclick = function () {
+        requestPost ();
     }
 }
-
+ 
 //Розбирався з запитами на сервер і чому readyState === 4 
 function requestGet(url, callback) {
     let callbackFunction = callback || function (stringInHTML) {};
@@ -48,28 +54,20 @@ function requestGet(url, callback) {
 }
 
 
-//Супер простий спосіб створити POST 
-window.onload = function () {
-    let requestText = document.querySelector('#js_postText');
-        
-    document.querySelector('#js_postButton').onclick = function () {
-        let result = '&age2'+ requestText.value;
-        requestPost (result, 'http://localhost:5984/test/hw11');
-    }
-}
 
-function requestPost (result, postURL) {
+function requestPost () {
     let postRequest = new XMLHttpRequest();
-    
+        
     postRequest.onreadystatechange = function () {
         if (postRequest.readyState === 4 && postRequest.status === 200) {
             console.log('Server ready and have "Ok" status');
+            console.log('RESULT ='+ result);
             document.querySelector('#js_postLog').innerHTML = 'It is finaly works';
         }
     }
     
-    postRequest.open('POST', postURL, true);
+    postRequest.open('POST', 'http://localhost:5984/test/hw11', true);
     postRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    postRequest.send(result);
+//Тут виникає помилка 400 (Bad Request). Вже все прочитав, що вона означає і чому виникає.
+    postRequest.send('{"fname":"Sasha"}');
 }
-
