@@ -1,5 +1,8 @@
 window.onload = function () {
 
+    let inp_name = document.querySelector('input[name=name]');
+    
+    
     document.querySelector('#js_getButton').onclick = function () {
         requestGet('http://localhost:5984/test/hw11', function (stringInHTML) {
             document.querySelector('#js_get4Log').innerHTML = stringInHTML;
@@ -10,8 +13,9 @@ window.onload = function () {
         requestPut ('http://localhost:5984/test/put');
     }
 
-    document.querySelector('#js_postButton').onclick = function () {
-        requestPost ('http://localhost:5984/test/hw11');
+    document.querySelector('#postSend').onclick = function () {
+        let postText = 'You name is:'+ inp_name.value;
+        requestPost (postText);
     }
      
 }
@@ -87,58 +91,25 @@ function requestPut (putURL) {
 };
 
 
-    // POST запит ERROR 400 (Bad Request). 
-    //{error: "bad_request", reason: "Referer header required."} 
-    //error: "bad_request" 
-    //reason: "Referer header required."
 
 
-function requestPost (postURL) {
+function requestPost (postText) {
     var request = new XMLHttpRequest();
-     let postData = {};
-        postData.firstname2 = 'Sasha';
-        postData.lastname2  = 'Vashchenko';
-    let postReq = JSON.stringify(postData);
-//    let firstname = 'Sasha';
-//    let lastname = 'Vashchenko';
-//    let postReq = 'name=' + encodeURIComponent(firstname) + '&surname=' + encodeURIComponent(lastname);
+
     request.onreadystatechange = function () {
             console.log('Ready State =', request.readyState);
-            console.log('Server status =',request.status);
-    if (request.readyState === 4 && request.status === 200) {
-        console.log('Server finish POST processing')
-        console.log('Ready State =', request.readyState);
-        console.log('Server status =',request.status);
-        let stringInHTML = 'Server status = ' + request.status + '. Ready state = ' + request.readyState + '. request.response Text = '+request.responseText+'. Input text '+postReq+'. File URL = '+ postURL;
-        document.querySelector('#js_postLog').innerHTML = stringInHTML;
-        } else if (request.status === 400) {
-            console.log('Ready State =', request.readyState);
-            console.log('Server status =',request.status);
-            document.querySelector('#js_postLog').innerHTML = 'We have a some problem. ERROR 400 (Bad Request. Referer header required). I do not know what to do';
-        }; 
+            console.log('Server status =', request.status);
+        if (request.readyState === 4 && request.status === 200) {
+                document.querySelector('#js_postLog').innerHTML = 'FINALLY POST REQUEST IS WORKING. Thank you Serhii ' + request.responseText;  
+//            if (request.responseText == '1') {
+//                document.querySelector('form').style.display = 'none';    
+//                document.querySelector('#js_postLog').innerHTML = 'FINALLY POST REQUEST IS WORKING.'  
+//            } else {
+//                document.querySelector('#js_postLog').innerHTML = 'We have a problem. '  
+//            };
+        };
     };
-    request.open("POST", postURL, true);
+    request.open("POST", 'form.php');
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send(postReq);
+    request.send(postText);
 };
-
-//
-//function requestPost (postURL) {
-//   let postRequest = new XMLHttpRequest();
-//   let json  = JSON.stringify({
-//       "name":"Sasha"
-//   });
-//
-//   postRequest.onreadystatechange = function () {
-//       if (postRequest.readyState === 4 && postRequest.status === 200) {
-//           console.log('Server ready and have "Ok" status');
-//           console.log('RESULT ='+ result);
-//           document.querySelector('#js_postLog').innerHTML = 'It is finaly works';
-//       }
-//   }
-//
-//   postRequest.open('POST', postURL, true);
-//   postRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-////Тут виникає помилка 400 (Bad Request). Вже все прочитав, що вона означає і чому виникає.
-//   postRequest.send(json);
-//}
