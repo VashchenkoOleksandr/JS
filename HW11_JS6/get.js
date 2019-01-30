@@ -97,8 +97,6 @@ function requestPost (postText) {
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function () {
-            console.log('Ready State =', request.readyState);
-            console.log('Server status =', request.status);
         if (request.readyState === 4 && request.status === 200) {
                 document.querySelector('#js_postLog').innerHTML = 'FINALLY POST REQUEST IS WORKING. Thank you Serhii ' + request.responseText;  
 //            if (request.responseText == '1') {
@@ -107,9 +105,10 @@ function requestPost (postText) {
 //            } else {
 //                document.querySelector('#js_postLog').innerHTML = 'We have a problem. '  
 //            };
-        };
+        }
     };
+
     request.open("POST", 'form.php');
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    request.send(postText);
-};
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(JSON.stringify({name:postText}));
+}
