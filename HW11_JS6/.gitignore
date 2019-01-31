@@ -1,3 +1,4 @@
-# folder ignore node modules
+# folder ignore
 node_modules/
-.idea/
+.idea
+idea
