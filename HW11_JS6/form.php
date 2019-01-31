@@ -1,5 +1,4 @@
 <?php
-
 $requestBody = file_get_contents('php://input');
 $data = json_decode($requestBody, true);
 $name = trim($data['name']);
