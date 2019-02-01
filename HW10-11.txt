@@ -1,0 +1,45 @@
+Modules:
+
+
+http://exploringjs.com/es6/ch_modules.html
+
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export
+
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+
+HM 
+Classes:
+
+
+https://gist.github.com/yana-tsulya/e014717fb5694d6361964d8f32f36532
+
+HW TODO-list:
+
+
+
+Перший рівень:
+
+Додавання нового завдвння
+
+Відмічення виконання завдання
+
+Видалення завдання
+
+Другий рівень:
+
+Редагування доданого завдання
+
+Фільтрування: всі завдання, зробленні/не зробленні
+
+Кількість завдань(всі, зробленні, не зроблені)
+
+Третій рівень:
+
+Збереження списку в localStorage
+
+
+Четвертий рівень:
+
+Підключення тестового серверу (CouchDB, Firebase, власний node-сервер, що знайдете))
