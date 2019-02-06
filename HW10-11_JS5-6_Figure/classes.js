@@ -119,5 +119,3 @@ Shapes = {
   Circle,
   Point,
 };
-
-// let point = new Point(5, 2);
