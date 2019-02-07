@@ -28,6 +28,7 @@ module.exports = {
         eqeqeq: ['warn', 'smart'],
 
         // disable rules from base configurations
+        "no-underscore-dangle": ['error', {'allowAfterThis': true}],
         "no-console": "off",
         'block-scoped-var': 'error',
         'guard-for-in': 'error',
