@@ -27,6 +27,11 @@
 // debugger;
 
 class Point {
+  /**
+   *
+   * @param {number} x
+   * @param {number} y
+   */
   constructor(x, y) {
     this._x = x;
     this._y = y;
@@ -34,18 +39,37 @@ class Point {
     console.log(`Check Y: ${this._y}`);
   }
 
+  /**
+   *
+   * @returns {number}
+   */
   get x() {
     return this._x;
   }
 
+  /**
+   *
+   * @returns {number}
+   */
   get y() {
     return this._y;
   }
 
+  /**
+   *
+   * @param {number} x1
+   * @param {number} y1
+   * @returns {Point}
+   */
   getPointAtOffset(x1, y1) {
     return new Point(this.x + x1, this.y + y1);
   }
 
+  /**
+   *
+   * @param {number} point
+   * @returns {number}
+   */
   getDistance(point) {
     return Math.sqrt(Math.pow(this.x - point.x, 2) + Math.pow(this.y - point.y, 2));
   }
@@ -76,8 +100,8 @@ class Rectangle extends Polygon {
   /**
    *
    * @param {Point} center
-   * @param {width} width
-   * @param {height} height
+   * @param {number} width
+   * @param {number} height
    */
   constructor(center, width, height) {
     super(center);
@@ -105,12 +129,12 @@ class Rectangle extends Polygon {
 class Square extends Rectangle {
   /**
    *
-   * @param center
-   * @param width
+   * @param {number} center
+   * @param {number} width
    */
   constructor(center, width) {
-    super(center, width);
-    this.width = width;
+    super(center, width, width);
+    // this.width = width;
   }
 }
 
@@ -120,7 +144,7 @@ class Circle extends Shape {
    * @param {number} radius
    */
   constructor(center, radius) {
-    super(radius);
+    super(center);
     this._radius = radius;
   }
 
