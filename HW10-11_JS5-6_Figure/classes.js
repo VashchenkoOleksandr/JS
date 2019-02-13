@@ -35,8 +35,6 @@ class Point {
   constructor(x, y) {
     this._x = x;
     this._y = y;
-    console.log(`Check X: ${this._x}`);
-    console.log(`Check Y: ${this._y}`);
   }
 
   /**
@@ -71,7 +69,7 @@ class Point {
    * @returns {number}
    */
   getDistance(point) {
-    return Math.sqrt(Math.pow(this.x - point.x, 2) + Math.pow(this.y - point.y, 2));
+    return Math.sqrt(((this.x - point.x) ** 2) + ((this.y - point.y) ** 2));
   }
 }
 
@@ -105,8 +103,8 @@ class Rectangle extends Polygon {
    */
   constructor(center, width, height) {
     super(center);
-    this.width = width;
-    this.height = height;
+    this._width = width;
+    this._height = height;
   }
 
   /**
@@ -114,7 +112,7 @@ class Rectangle extends Polygon {
    * @returns {number}
    */
   getPerimeter() {
-    return 2 * (this.width + this.height);
+    return 2 * (this._width + this._height);
   }
 
   /**
@@ -122,7 +120,7 @@ class Rectangle extends Polygon {
    * @returns {number}
    */
   getArea() {
-    return this.width * this.height;
+    return this._width * this._height;
   }
 }
 
@@ -134,7 +132,6 @@ class Square extends Rectangle {
    */
   constructor(center, width) {
     super(center, width, width);
-    // this.width = width;
   }
 }
 

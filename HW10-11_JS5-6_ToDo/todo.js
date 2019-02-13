@@ -1,19 +1,19 @@
-let deleteItem = document.getElementsByClassName("deleteItem");
-let myToDo = document.getElementsByTagName("li");
+let deleteItem = document.getElementsByClassName('deleteItem');
+let myToDo = document.getElementsByTagName('li');
 let list = document.querySelector('ul');
 
 for (let i = 0; i < myToDo.length; i++) {
   let span = document.createElement('span');
   let delTxt = document.createTextNode('Delete');
-  span.className = "deleteItem";
+  span.className = 'deleteItem';
   span.appendChild(delTxt);
   myToDo[i].appendChild(span);
 }
 
 for (let i = 0; i < deleteItem.length; i++) {
-  deleteItem[i].onclick = function() {
-     let div = this.parentElement;
-    div.style.display = "none";
+  deleteItem[i].onclick = function () {
+    let div = this.parentElement;
+    div.style.display = 'none';
   }
 }
 
