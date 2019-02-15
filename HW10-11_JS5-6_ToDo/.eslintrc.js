@@ -9,7 +9,7 @@ module.exports = {
         jest: true
     },
     parserOptions : {
-    ' sourceType ' : ' module '
+        'sourceType': 'module'
     },
     rules: {
         // enable additional rules

@@ -1,0 +1,70 @@
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.list-item:hover {
+    background-color: #e1e1e1;
+}
+
+.list-item.list-item--done {
+    background-color: #5b89d1;
+}
+
+.list-remove {
+    opacity: 0.4;
+}
+
+.list-remove:hover {
+    opacity: 1;
+}
+
+.list-text{
+    font-size: 20px;
+    width: 100%;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.list-remove {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    border: 2px solid #ff3831;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    height: 25px;
+    width: 15px;
+    padding: 0 5px;
+    margin-top: 2px;
+}
+
+.list-remove:before, .list-remove:after {
+    content: "";
+    background-color: #ff3831;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.list-remove:before {
+    height: 3px;
+    width: 15px;
+}
+
+.list-remove:after {
+    height: 15px;
+    width: 3px;
+}

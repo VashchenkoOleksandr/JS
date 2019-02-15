@@ -8,8 +8,13 @@ module.exports = {
         jasmine: true,
         jest: true
     },
-    parserOptions : {
-    ' sourceType ' : ' module '
+    parserOptions: {
+        'sourceType': 'module'
+    },
+    settings: {
+        'import/resolver': {
+            node: { extensions: ['*.js', '*.mjs'] }
+        }
     },
     rules: {
         // enable additional rules
@@ -20,6 +25,7 @@ module.exports = {
                 SwitchCase: 1
             }
         ],
+        'no-use-before-define': ["error", { "functions": false }],
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
@@ -31,7 +37,7 @@ module.exports = {
         eqeqeq: ['warn', 'smart'],
 
         // disable rules from base configurations
-        "no-console": "off",
+        'no-console': "off",
         'block-scoped-var': 'error',
         'guard-for-in': 'error',
         'no-loop-func': 'error',

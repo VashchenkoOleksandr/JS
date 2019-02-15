@@ -1,3 +1,18 @@
-const exp = 'Export text';
-const exp2 = 'Export text 2';
-export { exp, exp2 };
+export function expText(x) {
+  if (x === 10) {
+    return 'READY';
+  }
+  return 'FAIL';
+}
+
+export const tasks = {
+  newTask: [],
+  allDone: [],
+};
+
+const tasksList = document.getElementById('todo_list');
+const addNewTask = document.getElementById('add-task');
+
+export {
+  tasksList, addNewTask,
+};
