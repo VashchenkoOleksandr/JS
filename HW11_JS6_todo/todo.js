@@ -55,7 +55,7 @@ addNewTask.addEventListener('click', function () {
 });
 
 addNewTask.addEventListener('keyup', function (action) {
-  if (action.keyCode === 13) {
+  if (action.which === 13) {
     addTasks(this.value);
     // test value
     this.value = 'Do something: ';
