@@ -23,7 +23,6 @@
  *      площа(),
  *      периметр()
  */
-
 class Point {
   xPoint: number;
   yPoint: number;
@@ -41,78 +40,55 @@ class Point {
     return this.yPoint;
   }
 
-  getPointAtOffset(x1, y1): object {
+  getPointAtOffset(x1: number, y1: number) {
     return new Point(this.x + x1, this.y + y1);
   }
 
-  getDistance(point): number {
-    return Math.sqrt(Math.pow((this.x + x1), 2) + Math.pow((this.y + y1), 2));
+  getDistance(point: Point) {
+    return (Math.sqrt(Math.pow((this.x + x1), powConst) + Math.pow((this.y + y1), powConst)));
   }
-
 }
 
-//
-// class Shape {
-//     /**
-//      * @param {Point} center
-//      */
-//     constructor(center) {
-//         this._center = center;
-//     }
-// }
-//
-// class Polygon extends Shape {
-//     /**
-//      * @param {Point} center
-//      * @param {points[]} points
-//      */
-//     constructor(center, points) {
-//         super(center);
-//         this._points = points;
-//     }
-// }
-//
-// class Rectangle extends Polygon {
-//     /**
-//      *
-//      * @param {Point} center
-//      * @param {number} width
-//      * @param {number} height
-//      */
-//     constructor(center, width, height) {
-//         super(center);
-//         this._width = width;
-//         this._height = height;
-//     }
-//
-//     /**
-//      *
-//      * @returns {number}
-//      */
-//     getPerimeter() {
-//         return 2 * (this._width + this._height);
-//     }
-//
-//     /**
-//      *
-//      * @returns {number}
-//      */
-//     getArea() {
-//         return this._width * this._height;
-//     }
-// }
-//
-// class Square extends Rectangle {
-//     /**
-//      *
-//      * @param {number} center
-//      * @param {number} width
-//      */
-//     constructor(center, width) {
-//         super(center, width, width);
-//     }
-// }
-//
+class Shape {
+  center: Point;
+  constructor(center: Point) {
+    this.center = center;
+  }
+}
+
+class Polygon extends Shape {
+  constructor(center: Point, private points: Array<Point>) {
+    super(center);
+    this.points = points;
+  }
+}
+
+class Rectangle extends Polygon {
+  constructor(center: Point, private width: number, private height: number) {
+    super(center, null);
+    this.width = width;
+    this.height = height;
+  }
+
+  getPerimeter() {
+    return powConst * (this.width + this.height);
+  }
+
+  getArea() {
+    return this.width + this.height;
+  }
+}
+
+class Square extends Rectangle {
+  constructor(center: Point, width: number) {
+    super(center, width, width);
+  }
+}
+
+
+const powConst = 2;
+
+
 // class Circle extends Shape {
 //     /**
 //      * @param {Point} center
@@ -148,6 +124,3 @@ class Point {
 //     Circle,
 //     Point,
 // };
-
-
-
