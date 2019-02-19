@@ -32,12 +32,10 @@ class Point {
     this._y = y;
   }
 
-// @ts-ignore
   get x() {
     return this._x;
   }
 
-// @ts-ignore
   get y() {
     return this._y;
   }

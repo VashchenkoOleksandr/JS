@@ -42,7 +42,6 @@ var Point = /** @class */ (function () {
         this._y = y;
     }
     Object.defineProperty(Point.prototype, "x", {
-        // @ts-ignore
         get: function () {
             return this._x;
         },
@@ -50,7 +49,6 @@ var Point = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(Point.prototype, "y", {
-        // @ts-ignore
         get: function () {
             return this._y;
         },
@@ -131,5 +129,5 @@ Shapes = {
     Rectangle: Rectangle,
     Square: Square,
     Circle: Circle,
-    Point: Point
+    Point: Point,
 };
