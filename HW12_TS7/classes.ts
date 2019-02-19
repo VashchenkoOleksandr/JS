@@ -24,20 +24,22 @@
  *      периметр()
  */
 class Point {
-  xPoint: number;
-  yPoint: number;
+  _x: number;
+  _y: number;
 
   constructor(x: number, y: number) {
-    this.xPoint = x;
-    this.yPoint = y;
+    this._x = x;
+    this._y = y;
   }
 
+// @ts-ignore
   get x() {
-    return this.xPoint;
+    return this._x;
   }
 
+// @ts-ignore
   get y() {
-    return this.yPoint;
+    return this._y;
   }
 
   getPointAtOffset(x1: number, y1: number) {
@@ -45,6 +47,7 @@ class Point {
   }
 
   getDistance(point: Point) {
+    // @ts-ignore
     return (Math.sqrt(Math.pow((this.x + x1), powConst) + Math.pow((this.y + y1), powConst)));
   }
 }
@@ -85,42 +88,29 @@ class Square extends Rectangle {
   }
 }
 
+class Circle extends Shape {
+  constructor(center: Point, private radius: number) {
+    super(center);
+    this.radius = radius;
+  }
+
+  getPerimeter() {
+    return (powConst * Math.PI + this.radius);
+  }
+
+  getArea() {
+    return (Math.PI * Math.pow(this.radius, powConst));
+  }
+}
 
 const powConst = 2;
 
-
-// class Circle extends Shape {
-//     /**
-//      * @param {Point} center
-//      * @param {number} radius
-//      */
-//     constructor(center, radius) {
-//         super(center);
-//         this._radius = radius;
-//     }
-//
-//     /**
-//      *
-//      * @returns {number}
-//      */
-//     getPerimeter() {
-//         return 2 * Math.PI * this._radius;
-//     }
-//
-//     /**
-//      *
-//      * @returns {number}
-//      */
-//     getArea() {
-//         return Math.PI * (this._radius ** 2);
-//     }
-// }
-//
-// Shapes = {
-//     Shape,
-//     Polygon,
-//     Rectangle,
-//     Square,
-//     Circle,
-//     Point,
-// };
+// @ts-ignore
+Shapes = {
+    Shape,
+    Polygon,
+    Rectangle,
+    Square,
+    Circle,
+    Point,
+};

@@ -38,19 +38,21 @@ var __extends = (this && this.__extends) || (function () {
  */
 var Point = /** @class */ (function () {
     function Point(x, y) {
-        this.xPoint = x;
-        this.yPoint = y;
+        this._x = x;
+        this._y = y;
     }
     Object.defineProperty(Point.prototype, "x", {
+        // @ts-ignore
         get: function () {
-            return this.xPoint;
+            return this._x;
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(Point.prototype, "y", {
+        // @ts-ignore
         get: function () {
-            return this.yPoint;
+            return this._y;
         },
         enumerable: true,
         configurable: true
@@ -59,7 +61,8 @@ var Point = /** @class */ (function () {
         return new Point(this.x + x1, this.y + y1);
     };
     Point.prototype.getDistance = function (point) {
-        return +(Math.sqrt(Math.pow((this.x + x1), powConst) + Math.pow((this.y + y1), powConst)));
+        // @ts-ignore
+        return (Math.sqrt(Math.pow((this.x + x1), powConst) + Math.pow((this.y + y1), powConst)));
     };
     return Point;
 }());
@@ -104,39 +107,29 @@ var Square = /** @class */ (function (_super) {
     }
     return Square;
 }(Rectangle));
+var Circle = /** @class */ (function (_super) {
+    __extends(Circle, _super);
+    function Circle(center, radius) {
+        var _this = _super.call(this, center) || this;
+        _this.radius = radius;
+        _this.radius = radius;
+        return _this;
+    }
+    Circle.prototype.getPerimeter = function () {
+        return (powConst * Math.PI + this.radius);
+    };
+    Circle.prototype.getArea = function () {
+        return (Math.PI * Math.pow(this.radius, powConst));
+    };
+    return Circle;
+}(Shape));
 var powConst = 2;
-// class Circle extends Shape {
-//     /**
-//      * @param {Point} center
-//      * @param {number} radius
-//      */
-//     constructor(center, radius) {
-//         super(center);
-//         this._radius = radius;
-//     }
-//
-//     /**
-//      *
-//      * @returns {number}
-//      */
-//     getPerimeter() {
-//         return 2 * Math.PI * this._radius;
-//     }
-//
-//     /**
-//      *
-//      * @returns {number}
-//      */
-//     getArea() {
-//         return Math.PI * (this._radius ** 2);
-//     }
-// }
-//
-// Shapes = {
-//     Shape,
-//     Polygon,
-//     Rectangle,
-//     Square,
-//     Circle,
-//     Point,
-// };
+// @ts-ignore
+Shapes = {
+    Shape: Shape,
+    Polygon: Polygon,
+    Rectangle: Rectangle,
+    Square: Square,
+    Circle: Circle,
+    Point: Point
+};
