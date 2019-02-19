@@ -1,101 +1,144 @@
-/** Завдання створити класи:
-   *    фігура:
-   *      координати:
-   *      х, у
+class Point {
+  /**
    *
-   *    багатокутник -> фігура:
-   *      вершини[координати],
-   *      периметр()
-   *
-   *    прямокутник -> багатокутник:
-   *      довжина,
-   *      висота,
-   *      площа(),
-   *      периметр()
-   *
-   *    квадрат -> прямокутник:
-   *      довжинаСторони,
-   *      площа(),
-   *      периметр()
-   *
-   *    круг -> фігура:
-   *      радіус,
-   *      площа(),
-   *      периметр()
+   * @param {number} x
+   * @param {number} y
    */
-
-// training code start
-
-// debugger;
-
-console.log('Training code 1');
-class testPoint {
   constructor(x, y) {
-    this.some_x = x;
-    this.some_y = y;
-    this.test_x = `Point X in class Point constructor test_x ${x}`;
-    this.test_y = `Point Y in class Point constructor test_y ${y}`;
+    this._x = x;
+    this._y = y;
   }
 
-  myPoint() {
-    console.log(`Point x ${this.some_x}; Point y ${this.some_y}`);
-  }
-}
-
-const point = new testPoint(10, 20);
-const point2 = new testPoint(15, 25);
-const textVar = new testPoint('text1', 'text2');
-
-console.log(`Type of Point class: ${typeof testPoint}`);
-console.log(`Point x: ${point.some_x}`);
-console.log(`Point y: ${point.some_y}`);
-console.log(`Point y: ${point2.test_x}`);
-console.log(`Point y: ${point2.test_y}`);
-console.log(`Txt1: ${textVar.some_x}`);
-console.log(`Txt2: ${textVar.some_y}`);
-console.log('Result point.myPoint()');
-point.myPoint();
-console.log('Result point2.myPoint()');
-point2.myPoint();
-console.log(`Type of point.myPoint(): ${typeof point.myPoint()}`);
-console.log(`Type of point: ${typeof point}`);
-console.log('|');
-console.log('|');
-console.log('Training code 2');
-class txtText {
-  constructor(someTxt = txtText.getDefaultValue()){
-    this.someTxt = someTxt;
-    this._someTxt = someTxt;
-    this._status = false;
-    console.log('Start text training code');
+  /**
+   *
+   * @returns {number}
+   */
+  get x() {
+    return this._x;
   }
 
-  get status() {
-    return this._status === true ? 'Complete' : 'In process';
+  /**
+   *
+   * @returns {number}
+   */
+  get y() {
+    return this._y;
   }
 
-  set status(value){
-    (typeof value === 'number') ? this._status = true : this._status = false;
+  /**
+   *
+   * @param {number} x1
+   * @param {number} y1
+   * @returns {Point}
+   */
+  getPointAtOffset(x1, y1) {
+    return new Point(this.x + x1, this.y + y1);
   }
 
-  process(){
-    this.status = 12312;
-    console.log(`It is text in the txtText ${this.someTxt}`);
-  }
-
-  static getDefaultValue() {
-    return 'Default value';
+  /**
+   *
+   * @param {number} point
+   * @returns {number}
+   */
+  getDistance(point) {
+    return Math.sqrt(((this.x - point.x) ** 2) + ((this.y - point.y) ** 2));
   }
 }
 
-let txt = new txtText('Main text');
 
-console.log(txt.status, txt._status);
-txt.process();
-console.log(txt.status, txt._status);
-console.log(`Typeof static getDefaultValue(return 'Default value'): ${typeof txtText.getDefaultValue()}`);
-console.log('|');
-console.log('|');
-console.log('V');
-console.log('HW Classes');
-// training code END
+class Shape {
+  /**
+   * @param {Point} center
+   */
+  constructor(center) {
+    this._center = center;
+  }
+}
+
+class Polygon extends Shape {
+  /**
+   * @param {Point} center
+   * @param {points[]} points
+   */
+  constructor(center, points) {
+    super(center);
+    this._points = points;
+  }
+}
+
+class Rectangle extends Polygon {
+  /**
+   *
+   * @param {Point} center
+   * @param {number} width
+   * @param {number} height
+   */
+  constructor(center, width, height) {
+    super(center);
+    this._width = width;
+    this._height = height;
+  }
+
+  /**
+   *
+   * @returns {number}
+   */
+  getPerimeter() {
+    return 2 * (this._width + this._height);
+  }
+
+  /**
+   *
+   * @returns {number}
+   */
+  getArea() {
+    return this._width * this._height;
+  }
+}
+
+class Square extends Rectangle {
+  /**
+   *
+   * @param {number} center
+   * @param {number} width
+   */
+  constructor(center, width) {
+    super(center, width, width);
+  }
+}
+
+class Circle extends Shape {
+  /**
+   * @param {Point} center
+   * @param {number} radius
+   */
+  constructor(center, radius) {
+    super(center);
+    this._radius = radius;
+  }
+
+  /**
+   *
+   * @returns {number}
+   */
+  getPerimeter() {
+    return 2 * Math.PI * this._radius;
+  }
+
+  /**
+   *
+   * @returns {number}
+   */
+  getArea() {
+    return Math.PI * (this._radius ** 2);
+  }
+}
+
+Shapes = {
+  Shape,
+  Polygon,
+  Rectangle,
+  Square,
+  Circle,
+  Point,
+};

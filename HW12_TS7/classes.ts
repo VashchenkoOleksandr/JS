@@ -24,4 +24,18 @@
  *      периметр()
  */
 
-// debugger;
+const q = 1;
+let str = 'string!';
+str = 'string';
+let str1: string;
+str1 = 'same text';
+let num: number;
+num = 1;
+let num2 = 2;
+let variab: any = '1';
+variab = 0;
+variab = false;
+let variab2: string | number = '1' + 1;
+variab2 = 'true';
+variab2 = 1;
+const a = 123;
