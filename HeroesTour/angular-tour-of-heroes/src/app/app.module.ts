@@ -7,7 +7,6 @@ import { HeroesComponent } from './heroes/heroes.component';
 
 import { FormsModule } from "@angular/forms";
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { MessageComponent } from './message/message.component';
 import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { MessagesComponent } from './messages/messages.component';
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
-    MessageComponent,
     MessagesComponent
   ],
   imports: [
