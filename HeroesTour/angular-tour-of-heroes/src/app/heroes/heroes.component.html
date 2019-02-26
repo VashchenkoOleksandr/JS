@@ -2,16 +2,20 @@
   <div class="hero-block">
     <h2>Heroes</h2>
     <ul class="heroes">
-      <li class="heroes-list"
-          [class.selected]="hero === selectedHero"
-          *ngFor="let hero of heroes"
-          (click)="onSelect(hero)">
-        <span class="badge">ID: {{hero.id}}</span>Name: {{hero.name}}
+      <!--<li class="heroes-list"-->
+          <!--[class.selected]="hero === selectedHero"-->
+          <!--*ngFor="let hero of heroes"-->
+          <!--(click)="onSelect(hero)">-->
+        <!--<span class="badge">ID: {{hero.id}}</span>Name: {{hero.name}}-->
+      <!--</li>-->
+      <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">ID: {{hero.id}}</span>Name: {{hero.name}}
+        </a>
       </li>
     </ul>
   </div>
 
-  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
   <div class="hero-block" *ngIf="selectedHero">
     <div>
