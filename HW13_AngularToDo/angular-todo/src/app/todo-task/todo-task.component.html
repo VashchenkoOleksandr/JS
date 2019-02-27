@@ -6,7 +6,7 @@
 
 <p>This component take the id, status and todo task</p>
 <ul>
-  <li class="task-list">
+  <li class="task-list" *ngFor="let tasks of listTodo" (click)="onSelect(tasks)">
     <div class="task-id"><span>This is the task ID: </span>{{tasks.id}}</div>
     <div class="task-status"><span>This is the task Status: </span>{{tasks.status}}</div>
     <div class="task-text"><span>This is the task Text: </span>{{tasks.taskText}}</div>

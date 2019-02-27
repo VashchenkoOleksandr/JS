@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDo } from "../task";
+import { ToDo } from '../task';
+import { listTODO } from '../todoList';
 
 @Component({
   selector: 'app-todo-task',
@@ -12,7 +13,9 @@ export class TodoTaskComponent implements OnInit {
     id: 1,
     status: true,
     taskText: 'This is defaults text in the todo-task.components'
-};
+  };
+
+  listTodo = listTODO;
 
   constructor() { }
 
