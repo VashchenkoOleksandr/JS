@@ -1,14 +1,19 @@
-<h1>{{firstComponent}} component</h1>
-<p> Added and edit the new task </p>
-<label> Add/Edit task
-  <input [(ngModel)]="tasks.taskText" placeholder="Input you new task">
-</label>
+<h1>{{firstComponent}}</h1>
+<div>
+  <label> Add task
+    <input type="text" [(ngModel)]="task" placeholder="Input you new task">
+  </label>
 
-<p>This component take the id, status and todo task</p>
-<ul>
-  <li class="task-list" *ngFor="let tasks of listTodo" (click)="onSelect(tasks)">
-    <div class="task-id"><span>This is the task ID: </span>{{tasks.id}}</div>
-    <div class="task-status"><span>This is the task Status: </span>{{tasks.status}}</div>
-    <div class="task-text"><span>This is the task Text: </span>{{tasks.taskText}}</div>
-  </li>
-</ul>
+  <button type="button" (click)="onClick()">
+    <span>Add new task</span>
+  </button>
+</div>
+
+<div>
+  <p>The task list</p>
+  <ul>
+    <li class="task-list" *ngFor="let task of tasks">
+      <span> {{task.text}} </span>
+    </li>
+  </ul>
+</div>

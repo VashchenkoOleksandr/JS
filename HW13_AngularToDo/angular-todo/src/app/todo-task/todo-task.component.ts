@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDo } from '../task';
-import { listTODO } from '../todoList';
 
 @Component({
   selector: 'app-todo-task',
@@ -8,14 +6,19 @@ import { listTODO } from '../todoList';
   styleUrls: ['./todo-task.component.scss']
 })
 export class TodoTaskComponent implements OnInit {
-  firstComponent = 'TodoTaskComponent';
-  tasks: ToDo = {
-    id: 1,
-    status: true,
-    taskText: 'This is defaults text in the todo-task.components'
-  };
+  firstComponent = 'Create the task';
 
-  listTodo = listTODO;
+  task: string;
+  tasks = [];
+
+  onClick() {
+    this.tasks.push({
+      text: this.task,
+      strike: false
+    });
+
+    this.task = '';
+  }
 
   constructor() { }
 
