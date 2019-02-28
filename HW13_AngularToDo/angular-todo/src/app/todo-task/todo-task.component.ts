@@ -33,9 +33,23 @@ export class TodoTaskComponent implements OnInit {
     };
   }
 
+  onStatus(item) {
+    for (let i = 0; i < this.tasks.length; i++) {
+      if (item.id === this.tasks[i].id) {
+        (this.tasks[i].status) ? this.tasks[i].status = false : this.tasks[i].status = true;
+        break;
+      }
+    }
+  }
+
   onEdit(item) {
     this.task = item;
   }
+
+  onDelete(item) {
+  }
+
+
   ngOnInit() {
   }
 }
