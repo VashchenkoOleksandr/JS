@@ -1,12 +1,14 @@
 <h1>{{firstComponent}}</h1>
-<div>
-  <label> Add/edit task
-    <input type="text" [(ngModel)]="task.text" placeholder="Input you new task">
-  </label>
-
-  <button type="button" (click)="onClick()">
-    <span>Add/edit task</span>
-  </button>
+<div class="task-wrapper">
+  <div class="task-add">
+    <h2>Add/edit task</h2>
+    <label>
+      <input size="50" type="text" [(ngModel)]="task.text" placeholder="Input you new task" (keyup.enter)="onClick()">
+    </label>
+    <button type="button" (click)="onClick()">
+      <span>Add/edit task</span>
+    </button>
+  </div>
 </div>
 
 <div class="task-wrapper">

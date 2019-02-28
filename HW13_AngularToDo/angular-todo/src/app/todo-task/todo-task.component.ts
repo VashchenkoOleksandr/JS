@@ -14,12 +14,12 @@ export class TodoTaskComponent implements OnInit {
   tasks = [];
 
   task = {
-    text: '',
+    text: null,
     id: 0
   };
 
   onClick() {
-    if (this.task.id === 0) {
+    if (this.task.id === 0 && this.task.text != null) {
     this.tasks.push({
       text: this.task.text,
       status: false,
@@ -28,9 +28,13 @@ export class TodoTaskComponent implements OnInit {
     }
 
     this.task = {
-      text: '',
+      text: null,
       id: 0
     };
+  }
+
+  onEdit(item) {
+    this.task = item;
   }
 
   onStatus(item) {
@@ -42,13 +46,14 @@ export class TodoTaskComponent implements OnInit {
     }
   }
 
-  onEdit(item) {
-    this.task = item;
-  }
-
   onDelete(item) {
+    for (let i = 0; i < this.tasks.length; i++) {
+      if (item.id === this.tasks[i].id) {
+        this.tasks.splice(i, 1);
+        break;
+      }
+    }
   }
-
 
   ngOnInit() {
   }
