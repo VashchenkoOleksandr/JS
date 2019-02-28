@@ -6,22 +6,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-task.component.scss']
 })
 export class TodoTaskComponent implements OnInit {
+
+  constructor() { }
   firstComponent = 'Create the task';
 
   task: string;
   tasks = [];
 
-  onClick() {
-    this.tasks.push({
-      text: this.task,
-      status: false
-    });
+  task = {
+    text: '',
+    id: 0
+  };
 
-    this.task = '';
+  onClick() {
+    if (this.task.id === 0) {
+    this.tasks.push({
+      text: this.task.text,
+      status: false,
+      id: new Date().getTime()
+    });
+    }
+
+    this.task = {
+      text: '',
+      id: 0
+    };
   }
 
-  constructor() { }
-
+  onEdit(item) {
+    this.task = item;
+  }
   ngOnInit() {
   }
 }

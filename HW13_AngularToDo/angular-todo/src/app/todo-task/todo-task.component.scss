@@ -4,10 +4,26 @@
   align-self: center;
   justify-content: center;
 }
-
-.task-list{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: left;
+.task-box{
+  width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  .task-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    .task-text{
+      width: 500px;
+    }
+    .task-status{
+      width: 50px;
+    }
+    .task-edit{
+      width: 75px;
+      &:hover{
+        color: red;
+      }
+    }
+  }
 }

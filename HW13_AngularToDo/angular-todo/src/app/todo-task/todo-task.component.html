@@ -1,20 +1,21 @@
 <h1>{{firstComponent}}</h1>
 <div>
-  <label> Add task
-    <input type="text" [(ngModel)]="task" placeholder="Input you new task">
+  <label> Add/edit task
+    <input type="text" [(ngModel)]="task.text" placeholder="Input you new task">
   </label>
 
   <button type="button" (click)="onClick()">
-    <span>Add new task</span>
+    <span>Add/edit task</span>
   </button>
 </div>
 
 <div class="task-wrapper">
   <p>The task list</p>
-  <ul>
+  <ul class="task-box">
     <li class="task-list" *ngFor="let task of tasks">
-      <span> {{task.text | json}} </span>
-      <span> {{task.status}} </span>
+      <span class="task-text" ngClass="{'status': task.status}"> {{task.text | json}} </span>
+      <span class="task-status"> {{task.status}} </span>
+      <span class="task-edit" (click)="onEdit(task)"> EDIT </span>
     </li>
   </ul>
 </div>
