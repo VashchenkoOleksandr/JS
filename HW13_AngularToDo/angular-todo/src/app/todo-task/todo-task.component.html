@@ -9,11 +9,12 @@
   </button>
 </div>
 
-<div>
+<div class="task-wrapper">
   <p>The task list</p>
   <ul>
     <li class="task-list" *ngFor="let task of tasks">
-      <span> {{task.text}} </span>
+      <span> {{task.text | json}} </span>
+      <span> {{task.status}} </span>
     </li>
   </ul>
 </div>

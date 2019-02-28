@@ -1,32 +1,13 @@
+.task-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+}
+
 .task-list{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-align: left;
-  width: 50%;
-  .task-id{
-    margin-right: 10px;
-    color: red;
-    span{
-      display: block;
-      color: #000;
-    }
-  }
-  .task-status{
-    margin-right: 10px;
-    color: blue;
-    span{
-      display: block;
-      color: #000;
-    }
-  }
-  .task-text{
-    margin-right: 10px;
-    color: orangered;
-    span{
-      display: block;
-      color: #000;
-    }
-  }
-
 }

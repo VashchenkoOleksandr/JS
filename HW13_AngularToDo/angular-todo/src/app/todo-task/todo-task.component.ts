@@ -14,7 +14,7 @@ export class TodoTaskComponent implements OnInit {
   onClick() {
     this.tasks.push({
       text: this.task,
-      strike: false
+      status: false
     });
 
     this.task = '';
