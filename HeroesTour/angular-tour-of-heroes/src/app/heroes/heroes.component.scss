@@ -1,0 +1,47 @@
+.wrapper-flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+h2{
+  font-size: 30px;
+  margin: 0;
+}
+p{
+  margin: 0;
+  font-size: 22px;
+  color: red;
+  font-weight: bold;
+  span{
+    color: #000;
+    font-size: 20px;
+    opacity: 0.5;
+    text-align: left;
+  }
+}
+
+.hero-block{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroes{
+  text-align: left;
+  min-width: 250px;
+  .heroes-list:hover{
+    color: #900;
+    box-shadow: black;
+    font-size: 20px;
+  }
+  .badge{
+    margin-right: 20px;
+    font-weight: bold;
+  }
+}
+.selected{
+  background-color: rgba(10, 10, 10, 0.2);
+  color: brown;
+  font-size: 20px;
+}

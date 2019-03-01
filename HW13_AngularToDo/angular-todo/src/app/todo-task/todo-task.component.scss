@@ -1,0 +1,53 @@
+.task-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+}
+
+.task-add{
+  width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+.task-box{
+  width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  .status{
+    background-color: rgba(0, 255, 0, 0.3);
+  }
+  .task-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    .task-text{
+      width: 400px;
+    }
+    .task-status{
+      width: 100px;
+    }
+    .task-edit{
+      width: 75px;
+      opacity: 0.5;
+      &:hover{
+        color: green;
+        opacity: 1;
+      }
+    }
+    .task-delete{
+      width: 75px;
+      opacity: 0.5;
+      &:hover{
+        color: red;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,6 @@
+<div class="hero-block"  *ngIf="hero">
+  <h2>Details: {{hero.name | uppercase}}</h2>
+  <p><span>id: </span> {{hero.id}}</p>
+  <p><span>name: </span> {{hero.name}}</p>
+  <button (click)="goBack()">go back</button>
+</div>

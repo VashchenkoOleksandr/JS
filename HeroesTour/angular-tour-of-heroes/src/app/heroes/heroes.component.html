@@ -1,0 +1,32 @@
+<div class="wrapper-flex">
+  <div class="hero-block">
+    <h2>Heroes</h2>
+    <ul class="heroes">
+      <!--<li class="heroes-list"-->
+          <!--[class.selected]="hero === selectedHero"-->
+          <!--*ngFor="let hero of heroes"-->
+          <!--(click)="onSelect(hero)">-->
+        <!--<span class="badge">ID: {{hero.id}}</span>Name: {{hero.name}}-->
+      <!--</li>-->
+      <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">ID: {{hero.id}}</span>Name: {{hero.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="hero-block" *ngIf="selectedHero">
+    <div>
+      <label>Hero name:
+        <input [(ngModel)]="selectedHero.name" placeholder="Hero name">
+      </label>
+    </div>
+    <div>
+      <label>Hero ID:
+        <input [(ngModel)]="selectedHero.id" placeholder="ID number">
+      </label>
+    </div>
+  </div>
+</div>
