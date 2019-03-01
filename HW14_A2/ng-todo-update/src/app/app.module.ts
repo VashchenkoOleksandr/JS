@@ -9,12 +9,12 @@ import { TodoTaskComponent } from './todo-task/todo-task.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TodoTaskComponent,
+    TodoTaskComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

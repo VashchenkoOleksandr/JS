@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss', '../assets/reset.scss']
 })
 export class AppComponent {
-  title = 'Home work 13 Angular-todo';
+  title = 'Home work 14 Angular-todo';
 }

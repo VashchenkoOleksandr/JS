@@ -20,11 +20,11 @@ export class TodoTaskComponent implements OnInit {
 
   onClick() {
     if (this.task.id === 0 && this.task.text != null) {
-    this.tasks.push({
-      text: this.task.text,
-      status: false,
-      id: new Date().getTime()
-    });
+      this.tasks.push({
+        text: this.task.text,
+        status: false,
+        id: new Date().getTime()
+      });
     }
 
     this.task = {
