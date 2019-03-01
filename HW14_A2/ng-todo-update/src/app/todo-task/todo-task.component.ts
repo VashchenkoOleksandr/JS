@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TodoTaskComponent implements OnInit {
 
   constructor() { }
-  firstComponent = 'Create the task';
+  firstComponent = 'Old functional';
 
   task: string;
   tasks = [];
