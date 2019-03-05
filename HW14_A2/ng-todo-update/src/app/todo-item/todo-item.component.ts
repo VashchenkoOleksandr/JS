@@ -10,8 +10,13 @@ export class TodoItemComponent extends TodoTaskComponent implements OnInit {
 
   constructor() {
     super();
+    this.firstComponent = 'Create new functional';
   }
-  firstComponent = 'Create new functional';
+
+  onEdit(item) {
+    this.task = item;
+    this.task.status = false;
+  }
 
   ngOnInit() {
   }

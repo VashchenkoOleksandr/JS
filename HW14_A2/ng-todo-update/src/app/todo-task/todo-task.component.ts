@@ -15,7 +15,7 @@ export class TodoTaskComponent implements OnInit {
 
   task = {
     text: null,
-    id: 0
+    id: 0,
   };
 
   onClick() {
@@ -29,7 +29,7 @@ export class TodoTaskComponent implements OnInit {
 
     this.task = {
       text: null,
-      id: 0
+      id: 0,
     };
   }
 
