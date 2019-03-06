@@ -10,12 +10,12 @@ export class TodoTaskComponent implements OnInit {
   constructor() { }
   firstComponent = 'Old functional';
 
-  task: string;
   tasks = [];
 
   task = {
     text: null,
     id: 0,
+    status: false,
   };
 
   onClick() {
@@ -30,6 +30,7 @@ export class TodoTaskComponent implements OnInit {
     this.task = {
       text: null,
       id: 0,
+      status: false,
     };
   }
 
