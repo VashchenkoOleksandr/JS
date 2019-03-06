@@ -34,10 +34,6 @@ export class TodoTaskComponent implements OnInit {
     };
   }
 
-  onEdit(item) {
-    this.task = item;
-  }
-
   onStatus(item) {
     for (let i = 0; i < this.tasks.length; i++) {
       if (item.id === this.tasks[i].id) {

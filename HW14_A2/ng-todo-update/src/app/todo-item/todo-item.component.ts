@@ -13,6 +13,7 @@ export class TodoItemComponent extends TodoTaskComponent implements OnInit {
     this.firstComponent = 'Create new functional';
   }
 
+
   onEdit(item) {
     this.task = item;
     this.task.status = false;
