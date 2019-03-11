@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 @Component({
   selector: 'app-todo-task',
@@ -9,6 +10,7 @@ export class TodoTaskComponent implements OnInit {
 
   constructor() { }
   firstComponent = 'Old functional';
+  // todo = this.onClick();
 
   tasks = [];
 
@@ -19,6 +21,7 @@ export class TodoTaskComponent implements OnInit {
   };
 
   onClick() {
+    // localStorageItem = JSON.parse(localStorage.getItem('todo'));
     if (this.task.id === 0 && this.task.text != null) {
       this.tasks.push({
         text: this.task.text,
