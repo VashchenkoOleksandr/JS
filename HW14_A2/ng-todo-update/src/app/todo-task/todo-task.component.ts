@@ -28,7 +28,6 @@ export class TodoTaskComponent implements OnInit {
     }
 
     function createUUID() {
-      // http://www.ietf.org/rfc/rfc4122.txt
       const s = [];
       const hexDigits = '0123456789';
       for (let i = 0; i < 9; i++) {
