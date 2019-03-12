@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-// import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-todo-task',
@@ -10,7 +9,6 @@ export class TodoTaskComponent implements OnInit {
 
   constructor() { }
   firstComponent = 'Old functional';
-  // todo = this.onClick();
 
   tasks = [];
 
@@ -21,13 +19,29 @@ export class TodoTaskComponent implements OnInit {
   };
 
   onClick() {
-    // localStorageItem = JSON.parse(localStorage.getItem('todo'));
     if (this.task.id === 0 && this.task.text != null) {
       this.tasks.push({
-        text: this.task.text,
+        text: localStorage.getItem(locStorage(createUUID(), this.task.text)),
         status: false,
         id: new Date().getTime()
       });
+    }
+
+    function createUUID() {
+      // http://www.ietf.org/rfc/rfc4122.txt
+      const s = [];
+      const hexDigits = '0123456789';
+      for (let i = 0; i < 9; i++) {
+        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x9), 1);
+      }
+      s[0] = 'id: ';
+      s[3] = s[6] = '-';
+
+      return s.join('');
+    }
+    function locStorage(key, data) {
+      localStorage.setItem(key, data);
+      return key;
     }
 
     this.task = {
