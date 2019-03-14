@@ -1,0 +1,31 @@
+<h1>{{firstComponent}}</h1>
+<div class="wrapper">
+<p class="new-feature badge badge-success text-wrap">Change status after file edit!</p>
+<p class="new-feature badge badge-success text-wrap">Import bootstrap!</p>
+<p class="new-feature badge badge-success text-wrap">LocalStorage!</p>
+<div class="task-wrapper">
+  <div class="task-add">
+    <h2>Add/edit task</h2>
+    <label class="task-input">
+      <input class="form-control" size="50" type="text" [(ngModel)]="task.text" placeholder="Input you new task"
+             (keyup.enter)="onClick()">
+    </label>
+      <button class="task-btn-add btn btn-outline-primary" type="button" (click)="onClick()">
+        Add/edit task
+      </button>
+  </div>
+</div>
+
+<div class="task-wrapper">
+  <p class="text-monospace badge badge-primary text-wrap">Task list</p>
+  <ul class="task-box badge badge-light">
+    <li class="task-list btn btn-light" [ngClass]="{'status': task.status}" *ngFor="let task of tasks">
+      <span class="task-text text-break" (click)="onStatus(task)"> {{task.text}} </span>
+      <span class="task-status">Status: {{task.status}} </span>
+      <span class="task-edit btn btn-primary" (click)="onEdit(task)"> EDIT </span>
+      <span class="btn btn-danger" (click)="onDelete(task)"> DELETE </span>
+      {{stora}}
+    </li>
+  </ul>
+</div>
+</div>
