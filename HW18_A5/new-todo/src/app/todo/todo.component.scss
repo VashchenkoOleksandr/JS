@@ -8,18 +8,6 @@
   }
 }
 
-.new{
-  background-color: blue;
-}
-
-.process{
-  background-color: orange;
-}
-
-.done{
-  background-color: green;
-}
-
 .todo-input-block{
   display: flex;
   flex-direction: row;
@@ -31,5 +19,28 @@
   .due-date{
     margin: 0;
     width: 100px;
+  }
+}
+
+
+//TEST status color
+.new{
+  background-color: rgba(0, 0, 255, 0.2);
+  &:hover{
+    background-color: rgba(0, 0, 255, 0.4);
+  }
+}
+
+.process{
+  background-color: rgba(255, 255, 0, 0.2);
+  &:hover{
+    background-color: rgba(255, 255, 0, 0.4);
+  }
+}
+
+.done{
+  background-color: rgba(0, 255, 0, 0.2);
+  &:hover{
+    background-color: rgba(0, 255, 0, 0.4);
   }
 }
