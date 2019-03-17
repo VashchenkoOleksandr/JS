@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="wrapper">
+<h1 class="main-header">{{title}}</h1>
+<h2 class="sub-header">{{myPlans}}</h2>
+<ul>
+  <li class="plans-list" [ngClass]="{'plan-status': plan.status}" *ngFor="let plan of plans">
+    <div>{{plan.info}}</div>
+    <label>
+      <span>{{plan.status}}</span>
+      <input type="checkbox" [(ngModel)]="plan.status"/>
+    </label>
+  </li>
+</ul>
+<router-outlet></router-outlet>
+</div>

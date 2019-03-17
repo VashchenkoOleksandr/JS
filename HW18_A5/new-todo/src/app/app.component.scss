@@ -1,0 +1,36 @@
+*{
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.wrapper{
+  width: 50%;
+  min-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-header{
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #141414;
+}
+
+.sub-header{
+  font-size: 14px;
+  font-style: italic;
+  text-transform: capitalize;
+  color: #252525;
+}
+
+.plans-list{
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+.plan-status{
+  background-color: rgba(0, 255, 0, 0.3);
+}
