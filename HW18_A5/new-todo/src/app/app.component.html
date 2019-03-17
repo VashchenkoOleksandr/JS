@@ -4,7 +4,7 @@
 <h2 class="sub-header">{{myPlans}}</h2>
   <ul>
     <li class="plans-list" [ngClass]="{'plan-status': Plan.status}" *ngFor="let Plan of plans">
-      <div>{{Plan.info}}</div>
+      <div>{{Plan.id}}. {{Plan.info}}</div>
       <label>
         <span>{{Plan.status}}</span>
         <input type="checkbox" [(ngModel)]="Plan.status"/>
