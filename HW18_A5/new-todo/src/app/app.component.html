@@ -2,14 +2,15 @@
 <div class="wrapper">
 <h1 class="main-header">{{title}}</h1>
 <h2 class="sub-header">{{myPlans}}</h2>
-<ul>
-  <li class="plans-list" [ngClass]="{'plan-status': plan.status}" *ngFor="let plan of plans">
-    <div>{{plan.info}}</div>
-    <label>
-      <span>{{plan.status}}</span>
-      <input type="checkbox" [(ngModel)]="plan.status"/>
-    </label>
-  </li>
-</ul>
+  <ul>
+    <li class="plans-list" [ngClass]="{'plan-status': Plan.status}" *ngFor="let Plan of plans">
+      <div>{{Plan.info}}</div>
+      <label>
+        <span>{{Plan.status}}</span>
+        <input type="checkbox" [(ngModel)]="Plan.status"/>
+      </label>
+    </li>
+  </ul>
+<app-todo></app-todo>
 <router-outlet></router-outlet>
 </div>

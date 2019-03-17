@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 
+class Plan {
+  id: number;
+  info: string;
+  status: boolean;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,12 +14,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'My New ToDO';
   myPlans = 'My plans:';
-  plans: plan[] = [
-    {info: 'Create new ToDO', status: false},
-    {info: 'Add to the application with services', status: false},
-    {info: 'Add to the application with router page', status: false},
-    {info: 'Add to the application with pipes', status: false},
-    {info: 'create an application module to work with the server', status: false},
-    {info: 'Optional. Save the ToDo plans in Local Storage', status: false}
+  plans: Plan[] = [
+    {id: 1, info: 'Create new ToDO', status: false},
+    {id: 2, info: 'Add to the application with services', status: false},
+    {id: 3, info: 'Add to the application with router page', status: false},
+    {id: 4, info: 'Add to the application with pipes', status: false},
+    {id: 5, info: 'Create an application module to work with the server', status: false},
+    {id: 6, info: 'Optional. Save the ToDo plans in Local Storage', status: false}
   ];
 }
