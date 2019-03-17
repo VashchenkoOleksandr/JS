@@ -19,4 +19,7 @@
     </label>
     <button type="button">Add New Task</button>
   </div>
+  <p>Test items (later need delete)</p>
+  <span *ngFor="let TodoItem of items" [ngClass]="{'new': TodoItem.status === 'new', 'process': TodoItem.status === 'in process',
+  'done': TodoItem.status === 'done'}">{{TodoItem.title}} {{TodoItem.title}} <br /> </span>
 </div>
