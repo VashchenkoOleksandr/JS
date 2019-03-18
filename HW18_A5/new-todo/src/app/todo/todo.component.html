@@ -1,20 +1,22 @@
 <div>
   <h2>{{title}}</h2>
-  <div class="respons-input-block">
+  <div>
     <label>
-      <input class="input-respons" placeholder="Add new responsible">
+      <input class="input-todo" placeholder="Input you Title" [ngModel]="respons">
     </label>
-    <button type="button">Add New Responsible</button>
+    <label>
+      <button type="button" (click)="addTestRespons(respons)">Add New Task</button>
+    </label>
   </div>
 
   <div class="todo-input-block">
     <label>
-      <input class="input-todo" placeholder="Input you Title">
+      <input class="input-todo" placeholder="Input you Title" >
     </label>
     <span class="due-date">Due Date</span>
     <label>
-      <select>
-        <option value="Some man">Some body</option>
+      <select name="responsible">
+        <option value="Some man" *ngFor="let ResponsibleList of responsible">{{ResponsibleList.responsiblePerson}}</option>
       </select>
     </label>
     <button type="button">Add New Task</button>
