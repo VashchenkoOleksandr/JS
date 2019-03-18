@@ -1,27 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoItem } from '../todoItem';
-import {ResponsibleList} from '../responsibleList';
+import {Responsibles} from '../responsibleList';
+import { ResponsibleService } from '../responsible.service';
 
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss']
+  styleUrls: ['./todo.component.scss'],
+  providers: [ResponsibleService]
 })
 export class TodoComponent implements OnInit {
 
-  constructor() {}
+  constructor(private responsibleService: ResponsibleService) {}
 
-  responsible: ResponsibleList[] = [
-    {responsiblePerson: 'Vashchenko'},
-    {responsiblePerson: 'Test1'},
-    {responsiblePerson: 'Test2'}
-  ];
+  responsibles: Responsibles[] = [];
 
-  addTestRespons(respons: string) {
-    this.responsible.push(new ResponsibleList(respons));
-  }
-  
   title = 'New ToDO';
 
   items: TodoItem[] = [
@@ -30,6 +24,12 @@ export class TodoComponent implements OnInit {
     {id: 'testId3', title: 'Test title3', responsible: 'Vashchenko', dueDate: 'Test date3', status: 'done'}
   ];
 
-  ngOnInit(): void {}
+  addItem(responsible: string) {
+    this.responsibleService.addData(responsible);
+  }
+
+  ngOnInit(): void {
+    this.responsibles = this.responsibleService.getData();
+  }
 
 }
