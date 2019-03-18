@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoItem } from '../todoItem';
-import {Responsibles} from '../responsibleList';
+import { Responsibles } from '../responsibleList';
 import { ResponsibleService } from '../responsible.service';
 
 
@@ -18,6 +18,8 @@ export class TodoComponent implements OnInit {
 
   title = 'New ToDO';
 
+  dueDate = new Date();
+
   items: TodoItem[] = [
     {id: 'testId1', title: 'Test title1', responsible: 'Vashchenko', dueDate: 'Test date', status: 'new'},
     {id: 'testId2', title: 'Test title2', responsible: 'Vashchenko', dueDate: 'Test date2', status: 'in process'},
@@ -25,7 +27,7 @@ export class TodoComponent implements OnInit {
   ];
 
   addRespons(responsible: string) {
-    this.responsibleService.addData(responsible);
+      this.responsibleService.addData(responsible);
   }
 
   ngOnInit(): void {

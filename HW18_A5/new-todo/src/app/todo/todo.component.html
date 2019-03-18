@@ -13,7 +13,7 @@
     <label>
       <input class="input-todo" placeholder="Input you Title" >
     </label>
-    <span class="due-date">Due Date</span>
+    <span class="due-date">{{dueDate | date: 'yyyy-MM-dd, HH:mm:ss'}}</span>
     <label>
       <select name="responsible">
         <option value="Some man" *ngFor="let item of responsibles">{{item.responsible}}</option>

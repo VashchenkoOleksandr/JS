@@ -14,7 +14,9 @@ export class ResponsibleService {
   }
 
   addData(responsible: string) {
-    this.respons.push(new Responsibles(responsible));
+    if (responsible !== undefined) {
+      this.respons.push(new Responsibles(responsible));
+    }
   }
 
 }
