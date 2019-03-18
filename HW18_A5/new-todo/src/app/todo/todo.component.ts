@@ -24,7 +24,7 @@ export class TodoComponent implements OnInit {
     {id: 'testId3', title: 'Test title3', responsible: 'Vashchenko', dueDate: 'Test date3', status: 'done'}
   ];
 
-  addItem(responsible: string) {
+  addRespons(responsible: string) {
     this.responsibleService.addData(responsible);
   }
 

@@ -1,9 +1,6 @@
-import { Injectable } from '@angular/core';
 import { Responsibles } from './responsibleList';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 export class ResponsibleService {
 
   private respons: Responsibles[] = [
@@ -18,7 +15,7 @@ export class ResponsibleService {
 
   addData(responsible: string) {
     this.respons.push(new Responsibles(responsible));
+    
   }
 
-  constructor() { }
 }
