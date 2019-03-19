@@ -11,18 +11,16 @@
 
   <div class="todo-input-block">
     <label>
-      <input class="input-todo" placeholder="Input you Title" [(ngModel)]="TodoItem.title">
+      <input class="input-todo" placeholder="Input you Title" >
     </label>
-
-    <span class="due-date" [(ngModel)]="TodoItem.dueDate">{{dueDate | date: 'yyyy-MM-dd, HH:mm:ss'}}</span>
-
+    <span class="due-date">{{dueDate | date: 'yyyy-MM-dd, HH:mm:ss'}}</span>
     <label>
-      <select name="responsible" [(ngModel)]="TodoItem.responsible">
+      <select name="responsible">
         <option *ngFor="let item of responsibles">{{item.responsible}}</option>
       </select>
     </label>
     <app-status></app-status>
-    <button type="button" (click)="addTodo()">Add New Task</button>
+    <button type="button">Add New Task</button>
   </div>
   <p>Test items (later need delete)</p>
   <span *ngFor="let TodoItem of items" [ngClass]="{'new': TodoItem.status === 'new', 'process': TodoItem.status === 'in process',
