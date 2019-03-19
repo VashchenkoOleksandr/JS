@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { StatusComponent } from './status/status.component';
+import { ApiTodoComponent } from './api-todo/api-todo.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { StatusComponent } from './status/status.component';
     TodoComponent,
     TodoListComponent,
     StatusComponent,
+    ApiTodoComponent,
   ],
   imports: [
     BrowserModule,
