@@ -29,6 +29,12 @@ export class TodoComponent implements OnInit {
   addRespons(responsible: string) {
       this.responsibleService.addData(responsible);
   }
+  
+  addTodo() {
+    if (this.TodoItem.title !== undefined) {
+      this.items.push(TodoItem[{TodoItem}]);
+    }
+  }
 
   ngOnInit(): void {
     this.responsibles = this.responsibleService.getData();
