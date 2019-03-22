@@ -6,7 +6,7 @@ export class HttpService {
 
   private taskURL = 'http://localhost:4200/assets/task.json';
 
-  constructor(private http: HttpClient){ }
+  constructor(private http: HttpClient) { }
 
   getData() {
     return this.http.get(this.taskURL);

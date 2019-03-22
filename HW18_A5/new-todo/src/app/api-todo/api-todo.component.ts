@@ -5,24 +5,24 @@ import { HttpService } from '../http.service';
 @Component({
   selector: 'app-api-todo',
   template: `
-  <div>
-    <p>ID: {{todoItem?.id}}</p>
-    <p>Title: {{todoItem?.title}}</p>
-    <p>DueDate: {{todoItem?.dueDate}}</p>
-    <p>Responsible: {{todoItem?.responsible}}</p>
-    <p>Status: {{todoItem?.status}}</p>
-  </div>`,
+  <li *ngFor="let TodoItem of todoItem">
+    <p>ID: {{TodoItem?.id}}</p>
+    <p>Title: {{TodoItem?.title}}</p>
+    <p>DueDate: {{TodoItem?.dueDate}}</p>
+    <p>Responsible: {{TodoItem?.responsible}}</p>
+    <p>Status: {{TodoItem?.status}}</p>
+  </li>`,
   providers: [HttpService],
   styleUrls: ['./api-todo.component.scss']
 })
 export class ApiTodoComponent implements OnInit {
 
-  todoItem: TodoItem;
+  todoItem: TodoItem[] = [];
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.httpService.getData().subscribe((data: TodoItem) => this.todoItem = data);
+    this.httpService.getData().subscribe(data => this.todoItem = data["taskList"]);
   }
 
 }
