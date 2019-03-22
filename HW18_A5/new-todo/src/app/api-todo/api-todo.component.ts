@@ -6,11 +6,8 @@ import { HttpService } from '../http.service';
   selector: 'app-api-todo',
   template: `
   <li *ngFor="let TodoItem of todoItem">
-    <p>ID: {{TodoItem?.id}}</p>
-    <p>Title: {{TodoItem?.title}}</p>
-    <p>DueDate: {{TodoItem?.dueDate}}</p>
-    <p>Responsible: {{TodoItem?.responsible}}</p>
-    <p>Status: {{TodoItem?.status}}</p>
+    ID: {{TodoItem?.id}} Title: {{TodoItem?.title}} DueDate: {{TodoItem?.dueDate}}
+      Responsible: {{TodoItem?.responsible}} Status: {{TodoItem?.status}}
   </li>`,
   providers: [HttpService],
   styleUrls: ['./api-todo.component.scss']
@@ -22,7 +19,7 @@ export class ApiTodoComponent implements OnInit {
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.httpService.getData().subscribe(data => this.todoItem = data["taskList"]);
+    this.httpService.getData().subscribe(data => this.todoItem = data['taskList']);
   }
 
 }

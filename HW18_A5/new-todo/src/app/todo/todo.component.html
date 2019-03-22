@@ -26,6 +26,5 @@
   <span *ngFor="let TodoItem of items" [ngClass]="{'new': TodoItem.status === 'new', 'process': TodoItem.status === 'in process',
   'done': TodoItem.status === 'done'}">{{TodoItem.title}} {{TodoItem.title}} status = {{TodoItem.status}}<br /> </span>
 </div>
-<p>СТОП ТРЕБА СПРОБУВАТИ АРІ А ПОТІМ РОБИТИ НОВИЙ ТУДУ!!!!</p>
-
+<p>Звернення до task.json файлу</p>
 <app-api-todo></app-api-todo>
