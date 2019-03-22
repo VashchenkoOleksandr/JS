@@ -1,6 +1,12 @@
 <p>
   <label>
-    <button type="button" (click)="getTask()"></button>
-
+    <button type="button">Це потім</button>
   </label>
 </p>
+<div>
+  <p>ID: {{todoItem?.id}}</p>
+  <p>Title: {{todoItem?.title}}</p>
+  <p>Responsible: {{todoItem?.responsible}}</p>
+  <p>DueDate: {{todoItem?.dueDate}}</p>
+  <p>Status: {{todoItem?.status}}</p>
+</div>

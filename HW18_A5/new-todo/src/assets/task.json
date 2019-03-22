@@ -1,0 +1,7 @@
+{
+  "id": "testId1",
+  "title": "Test title1",
+  "responsible": "Vashchenko",
+  "dueDate": "Test date",
+  "status": "new"
+}
