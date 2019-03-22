@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoItem } from '../todoItem';
-import { HttpClient } from '@angular/common/http';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-api-todo',
@@ -12,18 +12,17 @@ import { HttpClient } from '@angular/common/http';
     <p>Responsible: {{todoItem?.responsible}}</p>
     <p>Status: {{todoItem?.status}}</p>
   </div>`,
+  providers: [HttpService],
   styleUrls: ['./api-todo.component.scss']
 })
 export class ApiTodoComponent implements OnInit {
 
   todoItem: TodoItem;
 
-  private taskURL = 'http://localhost:4200/assets/task.json';
-
-  constructor(private http: HttpClient) { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.http.get(this.taskURL).subscribe((data: TodoItem) => this.todoItem = data);
+    this.httpService.getData().subscribe((data: TodoItem) => this.todoItem = data);
   }
 
 }
