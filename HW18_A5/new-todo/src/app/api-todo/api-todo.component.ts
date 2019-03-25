@@ -19,7 +19,7 @@ export class ApiTodoComponent implements OnInit {
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.httpService.getData().subscribe(data => this.todoItem = data);
+    this.httpService.getNewData().subscribe(data => this.todoItem = data);
   }
 
 }
