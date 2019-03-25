@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {User} from './user';
 
 class Plan {
   id: number;
@@ -26,16 +24,10 @@ export class AppComponent implements OnInit {
     {id: 5, info: 'Create an application module to work with the server', status: false},
     {id: 6, info: 'Optional. Save the ToDo plans in Local Storage', status: false}
   ];
-
-  user: User;
-
-  private url: string;
   
-  constructor(private http: HttpClient) {
-    this.url = 'http://localhost:4200/assets/user.json';
+  constructor() {
   }
 
   ngOnInit() {
-    this.http.get(this.url).subscribe((data: User) => this.user = data);
   }
 }
