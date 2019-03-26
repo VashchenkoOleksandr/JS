@@ -16,7 +16,7 @@ import { TodoItem } from '../todoItem';
     ID: {{todo?.id}} Title: {{todo?.title}} responsible: {{todo?.responsible}} dueDate: {{todo?.dueDate}} status: {{todo?.status}}
   </li>
   <button (click)="takeApiTask()">Api task</button>
-  <li *ngFor="let todo of todoItems" [ngClass]="{'new': todo.status === 'new', 'process': todo.status === 'in process',
+  <li *ngFor="let todo of apiItems" [ngClass]="{'new': todo.status === 'new', 'process': todo.status === 'in process',
   'done': todo.status === 'done'}">
     ID: {{todo?.id}} Title: {{todo?.title}} responsible: {{todo?.responsible}} dueDate: {{todo?.dueDate}} status: {{todo?.status}}
   </li>
@@ -28,6 +28,7 @@ export class ApiTodoComponent implements OnInit {
 
   todoItem: TodoItem[] = [];
   todoItems: TodoItem[] = [];
+  apiItems: TodoItem[] = [];
 
   constructor(private httpService: HttpService) { }
 
@@ -48,7 +49,7 @@ export class ApiTodoComponent implements OnInit {
   }
 
   takeApiTask() {
-    this.httpService.getApiData().subscribe(data => this.todoItems = data);
+    this.httpService.getApiData()(data => this.apiItems = data);
   }
 
 }
