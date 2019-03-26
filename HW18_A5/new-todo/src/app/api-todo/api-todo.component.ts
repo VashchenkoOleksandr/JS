@@ -8,9 +8,9 @@ import { TodoItem } from '../todoItem';
   <li *ngFor="let todo of todoItem">
     ID: {{todo?.id}} Title: {{todo?.title}} Responsible: {{todo?.responsible}} Date: {{todo?.dueDate}} Status: {{todo?.status}}
   </li>
-  <button (click)="takeAllData()">Take new task</button>
-  <button (click)="takeInProcess()">Take in process</button>
-  <button (click)="takeDone()">Take done task</button>
+  <button (click)="takeAllData()">New task</button>
+  <button (click)="takeInProcess()">Task in process</button>
+  <button (click)="takeDone()">Done task</button>
   <li *ngFor="let todo of todoItems" [ngClass]="{'new': todo.status === 'new', 'process': todo.status === 'in process',
   'done': todo.status === 'done'}">
     ID: {{todo?.id}} Title: {{todo?.title}} responsible: {{todo?.responsible}} dueDate: {{todo?.dueDate}} status: {{todo?.status}}

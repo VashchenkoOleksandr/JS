@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TodoItem } from './todoItem';
+import { TodoItem, TodoAPI } from './todoItem';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -18,7 +18,7 @@ export class HttpService {
         }
       });
     }));
-  }
+}
 
   getData(): Observable<TodoItem[]> {
     return this.http.get('http://localhost:4200/assets/task.json').pipe(map(data => {
@@ -39,6 +39,7 @@ export class HttpService {
       });
     }));
   }
+  
   getDone(): Observable<TodoItem[]> {
     return this.http.get('http://localhost:4200/assets/task.json').pipe(map(data => {
       const taskList = data["taskList"];
@@ -50,4 +51,9 @@ export class HttpService {
     }));
   }
 
+  // Try send data on the server
+  getApiData() {
+    const params = new HttpParams().set();
+    return this.http.get(TodoAPI, {params});
+  }
 }

@@ -1,8 +1,8 @@
 export class TodoItem {
-  id: string;
+  id?: string;
   title: string;
   responsible: string;
-  dueDate: string;
+  dueDate: Date;
   status: string;
 }
 
