@@ -1,19 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TodoItem, TodoAPI } from './todoItem';
+import { TodoItem } from './todoItem';
 import { map } from 'rxjs/operators';
 
 @Injectable()
 export class HttpService {
-  
-  parameters = {
-    headers: new HttpHeaders({owner: 'Vashchenko'})
-  };
-  
+
   constructor(private http: HttpClient) {
   }
-  
+
   getNewData(): Observable<TodoItem[]> {
     return this.http.get('http://localhost:4200/assets/task.json').pipe(map(data => {
       const taskList = data["taskList"];
@@ -24,7 +20,7 @@ export class HttpService {
       });
     }));
   }
-  
+
   getData(): Observable<TodoItem[]> {
     return this.http.get('http://localhost:4200/assets/task.json').pipe(map(data => {
       const taskList = data["taskList"];
@@ -33,7 +29,7 @@ export class HttpService {
       });
     }));
   }
-  
+
   getInProcess(): Observable<TodoItem[]> {
     return this.http.get('http://localhost:4200/assets/task.json').pipe(map(data => {
       const taskList = data["taskList"];
@@ -44,7 +40,7 @@ export class HttpService {
       });
     }));
   }
-  
+
   getDone(): Observable<TodoItem[]> {
     return this.http.get('http://localhost:4200/assets/task.json').pipe(map(data => {
       const taskList = data["taskList"];
@@ -55,19 +51,16 @@ export class HttpService {
       });
     }));
   }
-  
-  // Try send data on the server
-  // getApiData() {
-  //   const params = new HttpParams().set();
-  //   return this.http.get(TodoAPI, {params});
-  // }
 
-  getApiData(): Observable<TodoItem[]> {
-    return this.http.get('https://api.todo-list.kotoblog.pp.ua/tasks/', this.parameters).pipe(map(data => {
-      const taskList = data["taskList"];
-      return taskList.map(function (todo: any) {
-        return {id: todo.id, title: todo.title, responsible: todo.responsible, dueDate: todo.dueDate, status: todo.status};
-      });
-    }));
+  getApiData(param: string) {
+  const params = new HttpParams().set('owner', param);
+  return this.http.get('https://api.todo-list.kotoblog.pp.ua/tasks/', {params});
+
+    // return this.http.get('https://api.todo-list.kotoblog.pp.ua/tasks/', this.parameters).pipe(map(data => {
+    //   const taskList = data["taskList"];
+    //   return taskList.map(function (todo: any) {
+    //     return {id: todo.id, title: todo.title, responsible: todo.responsible, dueDate: todo.dueDate, status: todo.status};
+    //   });
+    // }));
   }
 }

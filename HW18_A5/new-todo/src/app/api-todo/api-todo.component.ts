@@ -15,11 +15,11 @@ import { TodoItem } from '../todoItem';
   'done': todo.status === 'done'}">
     ID: {{todo?.id}} Title: {{todo?.title}} responsible: {{todo?.responsible}} dueDate: {{todo?.dueDate}} status: {{todo?.status}}
   </li>
-  <button (click)="takeApiTask()">Api task</button>
-  <li *ngFor="let todo of apiItems" [ngClass]="{'new': todo.status === 'new', 'process': todo.status === 'in process',
-  'done': todo.status === 'done'}">
-    ID: {{todo?.id}} Title: {{todo?.title}} responsible: {{todo?.responsible}} dueDate: {{todo?.dueDate}} status: {{todo?.status}}
-  </li>
+  <div>
+    <input type="text" name="owner" [(ngModel)]="param" />
+    <li *ngIf="done">{{owner}}</li>
+    <button (click)="submit(param)">Submit</button>
+  </div>
   `,
   providers: [HttpService],
   styleUrls: ['./api-todo.component.scss']
@@ -28,7 +28,10 @@ export class ApiTodoComponent implements OnInit {
 
   todoItem: TodoItem[] = [];
   todoItems: TodoItem[] = [];
-  apiItems: TodoItem[] = [];
+
+  owner: string;
+  param: string;
+  done = false;
 
   constructor(private httpService: HttpService) { }
 
@@ -48,8 +51,10 @@ export class ApiTodoComponent implements OnInit {
     this.httpService.getDone().subscribe(data => this.todoItems = data);
   }
 
-  takeApiTask() {
-    this.httpService.getApiData()(data => this.apiItems = data);
+  submit(param: string) {
+    this.httpService.getApiData(param).subscribe((data: string) => {
+      this.owner = data; this.done = true;
+    });
   }
 
 }
