@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TodoItem, TodoAPI } from './todoItem';
 import { map } from 'rxjs/operators';
@@ -52,8 +52,19 @@ export class HttpService {
   }
 
   // Try send data on the server
-  getApiData() {
-    const params = new HttpParams().set();
-    return this.http.get(TodoAPI, {params});
+  // getApiData() {
+  //   const params = new HttpParams().set();
+  //   return this.http.get(TodoAPI, {params});
+  // }
+
+  let headers = new HttpHeaders();
+  headers = headers.set('owner', 'Vashchenko');
+
+getApiData() {
+    return this.http.get('https://api.todo-list.kotoblog.pp.ua/tasks/', this.headers);
+      return taskList.map(function(todo) {
+        return {id: todo.id, title: todo.title, responsible: todo.responsible, dueDate: todo.dueDate, status: todo.status};
+      });
+    }));
   }
 }

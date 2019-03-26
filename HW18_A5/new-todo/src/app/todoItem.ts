@@ -2,7 +2,7 @@ export class TodoItem {
   id?: string;
   title: string;
   responsible: string;
-  dueDate: Date;
+  dueDate: string;
   status: string;
 }
 
