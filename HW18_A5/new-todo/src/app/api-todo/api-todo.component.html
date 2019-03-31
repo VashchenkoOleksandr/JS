@@ -1,0 +1,35 @@
+<!--All task list in th JSON file-->
+<ul>
+  <li *ngFor="let todo of todoItem">
+    ID: {{todo?.id}} Title: {{todo?.title}} Responsible: {{todo?.responsible}} Date: {{todo?.dueDate}} Status: {{todo?.status}}
+  </li>
+</ul>
+
+<button (click)="takeAllData()">New task</button>
+<button (click)="takeInProcess()">Task in process</button>
+<button (click)="takeDone()">Done task</button>
+<!--Task list sorted by status-->
+<ul>
+  <li *ngFor="let todo of todoItems" [ngClass]="{'new': todo.status === 'new', 'process': todo.status === 'in process',
+    'done': todo.status === 'done'}">
+    ID: {{todo?.id}} Title: {{todo?.title}} responsible: {{todo?.responsible}} dueDate: {{todo?.dueDate}} status: {{todo?.status}}
+  </li>
+</ul>
+
+<!--Todo url request-->
+<div>
+  <p>Work from the API URL</p>
+  <input type="text" name="owner" placeholder="Task text" [(ngModel)]="params" />
+  <label>
+    <select name="status" [(ngModel)]="taskStatus">
+      <option >new</option>
+      <option >in process</option>
+      <option >done</option>
+    </select>
+  </label>
+  <button (click)="addTask()">Add task</button>
+  <ul>
+    <li *ngFor="let Task of tasks">ID:  {{Task.id}} <br /> Task text: {{Task.title}} <br />
+      Responsible: {{Task.responsible}}<br /> Status: {{Task.status}} </li>
+  </ul>
+</div>

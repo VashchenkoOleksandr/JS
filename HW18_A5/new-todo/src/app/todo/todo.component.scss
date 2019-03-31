@@ -1,0 +1,36 @@
+.todo-input-block{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .input-todo{
+    width: 200px;
+    margin: 0;
+  }
+  .due-date{
+    margin: 0;
+    width: 100px;
+  }
+}
+
+
+//TEST status color
+.new{
+  background-color: rgba(0, 0, 255, 0.2);
+  &:hover{
+    background-color: rgba(0, 0, 255, 0.4);
+  }
+}
+
+.process{
+  background-color: rgba(255, 255, 0, 0.2);
+  &:hover{
+    background-color: rgba(255, 255, 0, 0.4);
+  }
+}
+
+.done{
+  background-color: rgba(0, 255, 0, 0.2);
+  &:hover{
+    background-color: rgba(0, 255, 0, 0.4);
+  }
+}

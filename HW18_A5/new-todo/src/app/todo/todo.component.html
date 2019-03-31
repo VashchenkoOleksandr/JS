@@ -1,0 +1,27 @@
+<div>
+  <h2>{{title}}</h2>
+  <div>
+    <label>
+      <input class="input-todo" placeholder="Input responsible person" [(ngModel)]="responsible">
+    </label>
+    <label>
+      <button type="button" (click)="addRespons(responsible)">Add New responsible</button>
+    </label>
+  </div>
+
+  <div class="todo-input-block">
+    <label>
+      <input class="input-todo" placeholder="Input you Title" >
+    </label>
+    <span class="due-date">{{dueDate | date: 'yyyy-MM-dd, HH:mm:ss'}}</span>
+    <label>
+      <select name="responsible">
+        <option *ngFor="let item of responsibles">{{item.responsible}}</option>
+      </select>
+    </label>
+    <app-status></app-status>
+    <button type="button">Add New Task</button>
+  </div>
+</div>
+<p>Work from the 'task.json' file</p>
+<app-api-todo></app-api-todo>

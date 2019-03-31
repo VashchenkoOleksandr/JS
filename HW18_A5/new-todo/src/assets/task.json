@@ -1,0 +1,8 @@
+{ "taskList": [
+  {"id": "testId1", "title": "Test title1", "responsible": "Vashchenko", "dueDate": "Test date", "status": "new"},
+  {"id": "testId2", "title": "Test title2", "responsible": "Vashchenko", "dueDate": "Test date2", "status": "in process"},
+  {"id": "testId3", "title": "Test title3", "responsible": "Vashchenko", "dueDate": "Test date3", "status": "done"},
+  {"id": "testId4", "title": "Test title4", "responsible": "Vashchenko", "dueDate": "Test date4", "status": "new"},
+  {"id": "testId5", "title": "Test title5", "responsible": "Vashchenko", "dueDate": "Test date5", "status": "in process"},
+  {"id": "testId6", "title": "Test title6", "responsible": "Vashchenko", "dueDate": "Test date6", "status": "done"}
+]}
