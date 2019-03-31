@@ -51,8 +51,8 @@ export class ApiTodoComponent implements OnInit {
     this.httpService.getDone().subscribe(data => this.todoItems = data);
   }
 
-  submit(param: string) {
-    this.httpService.getApiData(param).subscribe((data: string) => {
+  submit() {
+    this.httpService.getApiData().subscribe((data: string) => {
       this.owner = data; this.done = true;
     });
   }

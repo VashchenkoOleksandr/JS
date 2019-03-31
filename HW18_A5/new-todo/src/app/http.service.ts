@@ -1,13 +1,39 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TodoItem } from './todoItem';
+import { TodoItem, TodoAPI } from './todoItem';
 import { map } from 'rxjs/operators';
 
 @Injectable()
 export class HttpService {
 
-  constructor(private http: HttpClient) {
+  url = 'https://api.todo-list.kotoblog.pp.ua/';
+
+  dataParams = {
+    headers: new HttpHeaders({owner: 'Vashchenko'}),
+    observe: 'response' as 'body',
+    params: new HttpParams()
+  };
+
+  constructor(private http: HttpClient) { }
+
+  getApiData(): Observable<TodoItem[]> {
+    return this.http.get(this.url + 'task', this.dataParams).pipe(map(data => {
+      const taskList = data["taskList"];
+      return taskList.map(function (todo: any) {
+        return {id: todo.id, title: todo.title, responsible: todo.responsible, dueDate: todo.dueDate, status: todo.status};
+      });
+    }));
+  }
+
+  // For JSON File
+  getData(): Observable<TodoItem[]> {
+    return this.http.get('http://localhost:4200/assets/task.json').pipe(map(data => {
+      const taskList = data["taskList"];
+      return taskList.map(function (todo: any) {
+        return {id: todo.id, title: todo.title, responsible: todo.responsible, dueDate: todo.dueDate, status: todo.status};
+      });
+    }));
   }
 
   getNewData(): Observable<TodoItem[]> {
@@ -17,15 +43,6 @@ export class HttpService {
         if (todo.status === 'new') {
           return {id: todo.id, title: todo.title, responsible: todo.responsible, dueDate: todo.dueDate, status: todo.status};
         }
-      });
-    }));
-  }
-
-  getData(): Observable<TodoItem[]> {
-    return this.http.get('http://localhost:4200/assets/task.json').pipe(map(data => {
-      const taskList = data["taskList"];
-      return taskList.map(function (todo: any) {
-        return {id: todo.id, title: todo.title, responsible: todo.responsible, dueDate: todo.dueDate, status: todo.status};
       });
     }));
   }
@@ -52,15 +69,4 @@ export class HttpService {
     }));
   }
 
-  getApiData(param: string) {
-  const params = new HttpParams().set('owner', param);
-  return this.http.get('https://api.todo-list.kotoblog.pp.ua/tasks/', {params});
-
-    // return this.http.get('https://api.todo-list.kotoblog.pp.ua/tasks/', this.parameters).pipe(map(data => {
-    //   const taskList = data["taskList"];
-    //   return taskList.map(function (todo: any) {
-    //     return {id: todo.id, title: todo.title, responsible: todo.responsible, dueDate: todo.dueDate, status: todo.status};
-    //   });
-    // }));
-  }
 }
