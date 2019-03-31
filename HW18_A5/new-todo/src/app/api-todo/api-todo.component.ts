@@ -1,26 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
 import { HttpService } from '../http.service';
-import { TodoItem } from '../todoItem';
+import { TodoItem, Task } from '../todoItem';
 
 @Component({
   selector: 'app-api-todo',
-  template: `
-  <li *ngFor="let todo of todoItem">
-    ID: {{todo?.id}} Title: {{todo?.title}} Responsible: {{todo?.responsible}} Date: {{todo?.dueDate}} Status: {{todo?.status}}
-  </li>
-  <button (click)="takeAllData()">New task</button>
-  <button (click)="takeInProcess()">Task in process</button>
-  <button (click)="takeDone()">Done task</button>
-  <li *ngFor="let todo of todoItems" [ngClass]="{'new': todo.status === 'new', 'process': todo.status === 'in process',
-  'done': todo.status === 'done'}">
-    ID: {{todo?.id}} Title: {{todo?.title}} responsible: {{todo?.responsible}} dueDate: {{todo?.dueDate}} status: {{todo?.status}}
-  </li>
-  <div>
-    <input type="text" name="owner" [(ngModel)]="param" />
-    <li *ngIf="done">{{owner}}</li>
-    <button (click)="submit(param)">Submit</button>
-  </div>
-  `,
+  templateUrl: './api-todo.component.html',
   providers: [HttpService],
   styleUrls: ['./api-todo.component.scss']
 })
@@ -28,15 +13,36 @@ export class ApiTodoComponent implements OnInit {
 
   todoItem: TodoItem[] = [];
   todoItems: TodoItem[] = [];
+  tasks: Task[] = [];
 
-  owner: string;
-  param: string;
-  done = false;
+  params: string;
+  taskStatus: string;
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.httpService.getData().subscribe(data => this.todoItem = data);
+
+    this.httpService.getApiData().subscribe((response: HttpResponse<Array<Task>>) => {
+      this.tasks = response.body;
+    });
+  }
+
+  addTask() {
+    const task: Task = {
+      title: this.params,
+      responsible: 'Vashchenko',
+      dueDate: new Date(),
+      status: this.taskStatus.toString()
+    };
+
+    this.params = null;
+
+    this.httpService.postData(task).subscribe((response: HttpResponse<Task>) => {
+      if (response.status === 201) {
+        task.id = response.body.id;
+        this.tasks.push(task);
+      }
+    });
   }
 
   takeAllData() {
@@ -49,12 +55,6 @@ export class ApiTodoComponent implements OnInit {
 
   takeDone() {
     this.httpService.getDone().subscribe(data => this.todoItems = data);
-  }
-
-  submit() {
-    this.httpService.getApiData().subscribe((data: string) => {
-      this.owner = data; this.done = true;
-    });
   }
 
 }

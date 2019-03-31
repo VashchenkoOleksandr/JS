@@ -8,7 +8,7 @@ class Status {
   selector: 'app-status',
   template: `
   <label>
-    <select name="status">
+    <select name="status" [(ngModel)]="taskStatus">
       <option *ngFor="let Status of statuses" [ngClass]="{'new': Status.condition === 'new',
       'process': Status.condition === 'in process', 'done': Status.condition === 'done'}">{{Status.condition}}</option>
     </select>
@@ -20,6 +20,8 @@ class Status {
   `]
 })
 export class StatusComponent implements OnInit {
+
+  taskStatus: string;
 
   statuses: Status[] = [
     {condition: 'new'},
